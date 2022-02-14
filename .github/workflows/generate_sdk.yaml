@@ -1,0 +1,37 @@
+name: Generate TypeScript API client
+
+on:
+  repository_dispatch:
+    types: [on-oas-updated]
+
+jobs:
+  generate:
+    name: Generate TS client
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: craicoverflow/openapi-generator-action@v1
+        with:
+          generator: python
+          input: https://raw.githubusercontent.com/Apicurio/apicurio-registry/master/${{ github.event.client_payload.openapi_file_path }}
+          output: src
+          additional-properties: "packageName=registryclient"
+          ignore-file-override: .openapi-generator-ignore
+      - uses: dorny/paths-filter@v2
+        id: changes
+        with:
+          filters: |
+            generated:
+              - '**'
+
+      - name: Create Pull Request
+        if: steps.changes.outputs.generated == 'true'
+        uses: peter-evans/create-pull-request@v3
+        with:
+          delete-branch: true
+          branch-suffix: short-commit-hash
+          branch: generate-sdk
+          title: "[generated] Update API client"
+          commit-message: "chore: update API client"
+          body: |
+            Automated update of the Apicurio Registry SDK
