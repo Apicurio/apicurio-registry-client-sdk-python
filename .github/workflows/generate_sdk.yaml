@@ -14,7 +14,6 @@ jobs:
         with:
           generator: python
           input: https://raw.githubusercontent.com/Apicurio/apicurio-registry/master/${{ github.event.client_payload.openapi_file_path }}
-          output: src
           additional-properties: "packageName=registryclient"
           ignore-file-override: .openapi-generator-ignore
       - uses: dorny/paths-filter@v2
