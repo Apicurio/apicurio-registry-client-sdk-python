@@ -94,7 +94,7 @@ class VersionMetaData(ModelNormal):
         return {
             'version': (str,),  # noqa: E501
             'created_by': (str,),  # noqa: E501
-            'created_on': (datetime,),  # noqa: E501
+            'created_on': (str,),  # noqa: E501
             'type': (ArtifactType,),  # noqa: E501
             'global_id': (int,),  # noqa: E501
             'id': (str,),  # noqa: E501
@@ -141,7 +141,7 @@ class VersionMetaData(ModelNormal):
         Args:
             version (str):
             created_by (str):
-            created_on (datetime):
+            created_on (str):
             type (ArtifactType):
             global_id (int):
             id (str): The ID of a single artifact.
@@ -244,7 +244,7 @@ class VersionMetaData(ModelNormal):
         Args:
             version (str):
             created_by (str):
-            created_on (datetime):
+            created_on (str):
             type (ArtifactType):
             global_id (int):
             id (str): The ID of a single artifact.
