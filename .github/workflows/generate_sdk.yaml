@@ -19,7 +19,7 @@ jobs:
       - uses: craicoverflow/openapi-generator-action@v1
         with:
           generator: python
-          input: https://raw.githubusercontent.com/Apicurio/apicurio-registry/master/${{ github.event.client_payload.openapi_file_path }}
+          input: tmp/input-schema.json
           additional-properties: "packageName=registryclient"
           ignore-file-override: .openapi-generator-ignore
       - uses: dorny/paths-filter@v2
