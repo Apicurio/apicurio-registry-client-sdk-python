@@ -93,9 +93,9 @@ class ArtifactMetaData(ModelNormal):
         lazy_import()
         return {
             'created_by': (str,),  # noqa: E501
-            'created_on': (datetime,),  # noqa: E501
+            'created_on': (str,),  # noqa: E501
             'modified_by': (str,),  # noqa: E501
-            'modified_on': (datetime,),  # noqa: E501
+            'modified_on': (str,),  # noqa: E501
             'id': (str,),  # noqa: E501
             'version': (str,),  # noqa: E501
             'type': (ArtifactType,),  # noqa: E501
@@ -144,9 +144,9 @@ class ArtifactMetaData(ModelNormal):
 
         Args:
             created_by (str):
-            created_on (datetime):
+            created_on (str):
             modified_by (str):
-            modified_on (datetime):
+            modified_on (str):
             id (str): The ID of a single artifact.
             version (str):
             type (ArtifactType):
@@ -252,9 +252,9 @@ class ArtifactMetaData(ModelNormal):
 
         Args:
             created_by (str):
-            created_on (datetime):
+            created_on (str):
             modified_by (str):
-            modified_on (datetime):
+            modified_on (str):
             id (str): The ID of a single artifact.
             version (str):
             type (ArtifactType):

@@ -92,7 +92,7 @@ class SearchedVersion(ModelNormal):
         """
         lazy_import()
         return {
-            'created_on': (datetime,),  # noqa: E501
+            'created_on': (str,),  # noqa: E501
             'created_by': (str,),  # noqa: E501
             'type': (ArtifactType,),  # noqa: E501
             'state': (ArtifactState,),  # noqa: E501
@@ -135,7 +135,7 @@ class SearchedVersion(ModelNormal):
         """SearchedVersion - a model defined in OpenAPI
 
         Args:
-            created_on (datetime):
+            created_on (str):
             created_by (str):
             type (ArtifactType):
             state (ArtifactState):
@@ -236,7 +236,7 @@ class SearchedVersion(ModelNormal):
         """SearchedVersion - a model defined in OpenAPI
 
         Args:
-            created_on (datetime):
+            created_on (str):
             created_by (str):
             type (ArtifactType):
             state (ArtifactState):
