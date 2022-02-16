@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Download OpenAPI document
         run: | 
-          mkdir tmp
+          mkdir -p tmp
           curl https://raw.githubusercontent.com/Apicurio/apicurio-registry/master/${{ github.event.client_payload.openapi_file_path }} > tmp/input-schema.json
       - name: Preprocess input schema
         run: bash <(curl -s https://raw.githubusercontent.com/Apicurio/apicurio-registry-client-sdk-go/main/hack/scripts/preprocess-schema.sh)
@@ -22,6 +22,8 @@ jobs:
           input: tmp/input-schema.json
           additional-properties: "packageName=registryclient"
           ignore-file-override: .openapi-generator-ignore
+      - name: Clean up temp files
+        run: rm -r tmp
       - uses: dorny/paths-filter@v2
         id: changes
         with:
