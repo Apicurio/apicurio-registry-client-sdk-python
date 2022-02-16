@@ -91,14 +91,14 @@ class SearchedArtifact(ModelNormal):
         lazy_import()
         return {
             'id': (str,),  # noqa: E501
-            'created_on': (datetime,),  # noqa: E501
+            'created_on': (str,),  # noqa: E501
             'created_by': (str,),  # noqa: E501
             'type': (ArtifactType,),  # noqa: E501
             'state': (ArtifactState,),  # noqa: E501
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'labels': ([str],),  # noqa: E501
-            'modified_on': (datetime,),  # noqa: E501
+            'modified_on': (str,),  # noqa: E501
             'modified_by': (str,),  # noqa: E501
             'group_id': (str,),  # noqa: E501
         }
@@ -134,7 +134,7 @@ class SearchedArtifact(ModelNormal):
 
         Args:
             id (str): The ID of a single artifact.
-            created_on (datetime):
+            created_on (str):
             created_by (str):
             type (ArtifactType):
             state (ArtifactState):
@@ -173,7 +173,7 @@ class SearchedArtifact(ModelNormal):
             name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             labels ([str]): [optional]  # noqa: E501
-            modified_on (datetime): [optional]  # noqa: E501
+            modified_on (str): [optional]  # noqa: E501
             modified_by (str): [optional]  # noqa: E501
             group_id (str): An ID of a single artifact group.. [optional]  # noqa: E501
         """
@@ -233,7 +233,7 @@ class SearchedArtifact(ModelNormal):
 
         Args:
             id (str): The ID of a single artifact.
-            created_on (datetime):
+            created_on (str):
             created_by (str):
             type (ArtifactType):
             state (ArtifactState):
@@ -272,7 +272,7 @@ class SearchedArtifact(ModelNormal):
             name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             labels ([str]): [optional]  # noqa: E501
-            modified_on (datetime): [optional]  # noqa: E501
+            modified_on (str): [optional]  # noqa: E501
             modified_by (str): [optional]  # noqa: E501
             group_id (str): An ID of a single artifact group.. [optional]  # noqa: E501
         """
