@@ -5,9 +5,9 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **created_by** | **str** |  | 
-**created_on** | **datetime** |  | 
+**created_on** | **str** |  | 
 **modified_by** | **str** |  | 
-**modified_on** | **datetime** |  | 
+**modified_on** | **str** |  | 
 **id** | **str** | The ID of a single artifact. | 
 **version** | **str** |  | 
 **type** | [**ArtifactType**](ArtifactType.md) |  | 

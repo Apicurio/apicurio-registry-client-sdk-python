@@ -85,7 +85,7 @@ class SystemInfo(ModelNormal):
             'name': (str,),  # noqa: E501
             'description': (str,),  # noqa: E501
             'version': (str,),  # noqa: E501
-            'built_on': (datetime,),  # noqa: E501
+            'built_on': (str,),  # noqa: E501
         }
 
     @cached_property
@@ -144,7 +144,7 @@ class SystemInfo(ModelNormal):
             name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
-            built_on (datetime): [optional]  # noqa: E501
+            built_on (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
@@ -229,7 +229,7 @@ class SystemInfo(ModelNormal):
             name (str): [optional]  # noqa: E501
             description (str): [optional]  # noqa: E501
             version (str): [optional]  # noqa: E501
-            built_on (datetime): [optional]  # noqa: E501
+            built_on (str): [optional]  # noqa: E501
         """
 
         _check_type = kwargs.pop('_check_type', True)
