@@ -10,6 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Download OpenAPI document
+        run: | 
+          mkdir tmp
+          curl https://raw.githubusercontent.com/Apicurio/apicurio-registry/master/${{ github.event.client_payload.openapi_file_path }} > tmp/input-schema.json
+      - name: Preprocess input schema
+        run: bash <(curl -s https://raw.githubusercontent.com/Apicurio/apicurio-registry-client-sdk-go/main/hack/scripts/preprocess-schema.sh)
       - uses: craicoverflow/openapi-generator-action@v1
         with:
           generator: python
