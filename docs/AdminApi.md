@@ -1,4 +1,4 @@
-# registryclient.AdminApi
+# apicurioregistryclient.AdminApi
 
 All URIs are relative to *http://localhost*
 
@@ -35,20 +35,20 @@ Adds a rule to the list of globally configured rules.  This operation can fail f
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.error import Error
-from registryclient.model.rule import Rule
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule import Rule
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     rule = Rule(
@@ -60,7 +60,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Create global rule
         api_instance.create_global_rule(rule)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->create_global_rule: %s\n" % e)
 ```
 
@@ -108,20 +108,20 @@ Creates a new mapping between a user/principal and a role.  This operation can f
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.role_mapping import RoleMapping
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.role_mapping import RoleMapping
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     role_mapping = RoleMapping(
@@ -134,7 +134,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Create a new role mapping
         api_instance.create_role_mapping(role_mapping)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->create_role_mapping: %s\n" % e)
 ```
 
@@ -180,19 +180,19 @@ Deletes all globally configured rules.  This operation can fail for the followin
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
 
@@ -200,7 +200,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Delete all global rules
         api_instance.delete_all_global_rules()
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->delete_all_global_rules: %s\n" % e)
 ```
 
@@ -243,20 +243,20 @@ Deletes a single global rule.  If this is the only rule configured, this is the 
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.rule_type import RuleType
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule_type import RuleType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -265,7 +265,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Delete global rule
         api_instance.delete_global_rule(rule)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->delete_global_rule: %s\n" % e)
 ```
 
@@ -312,19 +312,19 @@ Deletes a single role mapping, effectively denying access to a user/principal.  
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     principal_id = "principalId_example" # str | Unique id of a principal (typically either a user or service account).
@@ -333,7 +333,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Delete a role mapping
         api_instance.delete_role_mapping(principal_id)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->delete_role_mapping: %s\n" % e)
 ```
 
@@ -380,19 +380,19 @@ Exports registry data as a ZIP archive.
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
 
@@ -401,7 +401,7 @@ with registryclient.ApiClient() as api_client:
         # Export registry data
         api_response = api_instance.export_data()
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->export_data: %s\n" % e)
 ```
 
@@ -444,21 +444,21 @@ Returns information about the named globally configured rule.  This operation ca
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.rule_type import RuleType
-from registryclient.model.error import Error
-from registryclient.model.rule import Rule
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule import Rule
+from apicurioregistryclient.model.rule_type import RuleType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -468,7 +468,7 @@ with registryclient.ApiClient() as api_client:
         # Get global rule configuration
         api_response = api_instance.get_global_rule_config(rule)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->get_global_rule_config: %s\n" % e)
 ```
 
@@ -515,20 +515,20 @@ Returns the configured logger configuration for the provided logger name, if no 
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.named_log_configuration import NamedLogConfiguration
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.named_log_configuration import NamedLogConfiguration
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     logger = "logger_example" # str | The name of a single logger.
@@ -538,7 +538,7 @@ with registryclient.ApiClient() as api_client:
         # Get a single logger configuration
         api_response = api_instance.get_log_configuration(logger)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->get_log_configuration: %s\n" % e)
 ```
 
@@ -584,20 +584,20 @@ Gets the details of a single role mapping (by principalId).  This operation can 
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.role_mapping import RoleMapping
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.role_mapping import RoleMapping
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     principal_id = "principalId_example" # str | Unique id of a principal (typically either a user or service account).
@@ -607,7 +607,7 @@ with registryclient.ApiClient() as api_client:
         # Return a single role mapping
         api_response = api_instance.get_role_mapping(principal_id)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->get_role_mapping: %s\n" % e)
 ```
 
@@ -654,19 +654,19 @@ Imports registry data that was previously exported using the `/admin/export` ope
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     body = open('/path/to/file', 'rb') # file_type | The ZIP file representing the previously exported registry data.
@@ -675,7 +675,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Import registry data
         api_instance.import_data(body)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->import_data: %s\n" % e)
 ```
 
@@ -721,20 +721,20 @@ Gets a list of all the currently configured global rules (if any).  This operati
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.rule_type import RuleType
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule_type import RuleType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
 
@@ -743,7 +743,7 @@ with registryclient.ApiClient() as api_client:
         # List global rules
         api_response = api_instance.list_global_rules()
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->list_global_rules: %s\n" % e)
 ```
 
@@ -786,20 +786,20 @@ List all of the configured logging levels.  These override the default logging c
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.named_log_configuration import NamedLogConfiguration
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.named_log_configuration import NamedLogConfiguration
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
 
@@ -808,7 +808,7 @@ with registryclient.ApiClient() as api_client:
         # List logging configurations
         api_response = api_instance.list_log_configurations()
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->list_log_configurations: %s\n" % e)
 ```
 
@@ -851,20 +851,20 @@ Gets a list of all role mappings configured in the registry (if any).  This oper
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.role_mapping import RoleMapping
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.role_mapping import RoleMapping
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
 
@@ -873,7 +873,7 @@ with registryclient.ApiClient() as api_client:
         # List all role mappings
         api_response = api_instance.list_role_mappings()
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->list_role_mappings: %s\n" % e)
 ```
 
@@ -916,20 +916,20 @@ Removes the configured logger configuration (if any) for the given logger.
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.named_log_configuration import NamedLogConfiguration
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.named_log_configuration import NamedLogConfiguration
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     logger = "logger_example" # str | The name of a single logger.
@@ -939,7 +939,7 @@ with registryclient.ApiClient() as api_client:
         # Removes logger configuration
         api_response = api_instance.remove_log_configuration(logger)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->remove_log_configuration: %s\n" % e)
 ```
 
@@ -985,21 +985,21 @@ Configures the logger referenced by the provided logger name with the given conf
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.named_log_configuration import NamedLogConfiguration
-from registryclient.model.log_configuration import LogConfiguration
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.log_configuration import LogConfiguration
+from apicurioregistryclient.model.named_log_configuration import NamedLogConfiguration
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     logger = "logger_example" # str | The name of a single logger.
@@ -1012,7 +1012,7 @@ with registryclient.ApiClient() as api_client:
         # Set a logger's configuration
         api_response = api_instance.set_log_configuration(logger, log_configuration)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->set_log_configuration: %s\n" % e)
 ```
 
@@ -1059,21 +1059,21 @@ Updates the configuration for a globally configured rule.  This operation can fa
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.rule_type import RuleType
-from registryclient.model.error import Error
-from registryclient.model.rule import Rule
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule import Rule
+from apicurioregistryclient.model.rule_type import RuleType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -1087,7 +1087,7 @@ with registryclient.ApiClient() as api_client:
         # Update global rule configuration
         api_response = api_instance.update_global_rule_config(rule, rule2)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->update_global_rule_config: %s\n" % e)
 ```
 
@@ -1135,20 +1135,20 @@ Updates a single role mapping for one user/principal.  This operation can fail f
 
 ```python
 import time
-import registryclient
-from registryclient.api import admin_api
-from registryclient.model.update_role import UpdateRole
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.update_role import UpdateRole
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     principal_id = "principalId_example" # str | Unique id of a principal (typically either a user or service account).
@@ -1160,7 +1160,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Update a role mapping
         api_instance.update_role_mapping(principal_id, update_role)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->update_role_mapping: %s\n" % e)
 ```
 

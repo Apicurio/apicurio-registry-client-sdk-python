@@ -1,4 +1,4 @@
-# registryclient.UsersApi
+# apicurioregistryclient.UsersApi
 
 All URIs are relative to *http://localhost*
 
@@ -19,20 +19,20 @@ Returns information about the currently authenticated user.
 
 ```python
 import time
-import registryclient
-from registryclient.api import users_api
-from registryclient.model.user_info import UserInfo
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import users_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.user_info import UserInfo
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = users_api.UsersApi(api_client)
 
@@ -41,7 +41,7 @@ with registryclient.ApiClient() as api_client:
         # Get current user
         api_response = api_instance.get_current_user_info()
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling UsersApi->get_current_user_info: %s\n" % e)
 ```
 

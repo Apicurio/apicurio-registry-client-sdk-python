@@ -1,4 +1,4 @@
-# registryclient.SystemApi
+# apicurioregistryclient.SystemApi
 
 All URIs are relative to *http://localhost*
 
@@ -19,20 +19,20 @@ This operation retrieves information about the running registry system, such as 
 
 ```python
 import time
-import registryclient
-from registryclient.api import system_api
-from registryclient.model.error import Error
-from registryclient.model.system_info import SystemInfo
+import apicurioregistryclient
+from apicurioregistryclient.api import system_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.system_info import SystemInfo
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = system_api.SystemApi(api_client)
 
@@ -41,7 +41,7 @@ with registryclient.ApiClient() as api_client:
         # Get system information
         api_response = api_instance.get_system_info()
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling SystemApi->get_system_info: %s\n" % e)
 ```
 

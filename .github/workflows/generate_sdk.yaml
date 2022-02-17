@@ -22,7 +22,7 @@ jobs:
           input: tmp/input-schema.json
           git-user-id: Apicurio
           git-repo-id: apicurio-registry-client-sdk-python
-          additional-properties: "packageName=registryclient"
+          additional-properties: "packageName=apicurioregistryclient"
           ignore-file-override: .openapi-generator-ignore
       - name: Clean up temp files
         run: rm -r tmp

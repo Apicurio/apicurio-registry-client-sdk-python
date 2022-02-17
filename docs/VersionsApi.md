@@ -1,4 +1,4 @@
-# registryclient.VersionsApi
+# apicurioregistryclient.VersionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -22,21 +22,21 @@ Creates a new version of the artifact by uploading new content.  The configured 
 
 ```python
 import time
-import registryclient
-from registryclient.api import versions_api
-from registryclient.model.error import Error
-from registryclient.model.version_meta_data import VersionMetaData
-from registryclient.model.rule_violation_error import RuleViolationError
+import apicurioregistryclient
+from apicurioregistryclient.api import versions_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.version_meta_data import VersionMetaData
+from apicurioregistryclient.model.rule_violation_error import RuleViolationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = versions_api.VersionsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -53,7 +53,7 @@ with registryclient.ApiClient() as api_client:
         # Create artifact version
         api_response = api_instance.create_artifact_version(group_id, artifact_id, body)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling VersionsApi->create_artifact_version: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -62,7 +62,7 @@ with registryclient.ApiClient() as api_client:
         # Create artifact version
         api_response = api_instance.create_artifact_version(group_id, artifact_id, body, x_registry_version=x_registry_version, x_registry_name=x_registry_name, x_registry_description=x_registry_description, x_registry_description_encoded=x_registry_description_encoded, x_registry_name_encoded=x_registry_name_encoded)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling VersionsApi->create_artifact_version: %s\n" % e)
 ```
 
@@ -117,19 +117,19 @@ Retrieves a single version of the artifact content.  Both the `artifactId` and t
 
 ```python
 import time
-import registryclient
-from registryclient.api import versions_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import versions_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = versions_api.VersionsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -141,7 +141,7 @@ with registryclient.ApiClient() as api_client:
         # Get artifact version
         api_response = api_instance.get_artifact_version(group_id, artifact_id, version)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling VersionsApi->get_artifact_version: %s\n" % e)
 ```
 
@@ -190,20 +190,20 @@ Returns a list of all versions of the artifact.  The result set is paged.  This 
 
 ```python
 import time
-import registryclient
-from registryclient.api import versions_api
-from registryclient.model.error import Error
-from registryclient.model.version_search_results import VersionSearchResults
+import apicurioregistryclient
+from apicurioregistryclient.api import versions_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.version_search_results import VersionSearchResults
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = versions_api.VersionsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -216,7 +216,7 @@ with registryclient.ApiClient() as api_client:
         # List artifact versions
         api_response = api_instance.list_artifact_versions(group_id, artifact_id)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling VersionsApi->list_artifact_versions: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -225,7 +225,7 @@ with registryclient.ApiClient() as api_client:
         # List artifact versions
         api_response = api_instance.list_artifact_versions(group_id, artifact_id, offset=offset, limit=limit)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling VersionsApi->list_artifact_versions: %s\n" % e)
 ```
 
@@ -275,20 +275,20 @@ Updates the state of a specific version of an artifact.  For example, you can us
 
 ```python
 import time
-import registryclient
-from registryclient.api import versions_api
-from registryclient.model.update_state import UpdateState
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import versions_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.update_state import UpdateState
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = versions_api.VersionsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -302,7 +302,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Update artifact version state
         api_instance.update_artifact_version_state(group_id, artifact_id, version, update_state)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling VersionsApi->update_artifact_version_state: %s\n" % e)
 ```
 

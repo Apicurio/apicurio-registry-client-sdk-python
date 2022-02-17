@@ -1,4 +1,4 @@
-# registryclient.ArtifactsApi
+# apicurioregistryclient.ArtifactsApi
 
 All URIs are relative to *http://localhost*
 
@@ -30,23 +30,23 @@ Creates a new artifact by posting the artifact content.  The body of the request
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.artifact_meta_data import ArtifactMetaData
-from registryclient.model.if_exists import IfExists
-from registryclient.model.error import Error
-from registryclient.model.rule_violation_error import RuleViolationError
-from registryclient.model.artifact_type import ArtifactType
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.if_exists import IfExists
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.artifact_type import ArtifactType
+from apicurioregistryclient.model.rule_violation_error import RuleViolationError
+from apicurioregistryclient.model.artifact_meta_data import ArtifactMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | Unique ID of an artifact group.
@@ -66,7 +66,7 @@ with registryclient.ApiClient() as api_client:
         # Create artifact
         api_response = api_instance.create_artifact(group_id, body)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->create_artifact: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -75,7 +75,7 @@ with registryclient.ApiClient() as api_client:
         # Create artifact
         api_response = api_instance.create_artifact(group_id, body, x_registry_artifact_type=x_registry_artifact_type, x_registry_artifact_id=x_registry_artifact_id, x_registry_version=x_registry_version, if_exists=if_exists, canonical=canonical, x_registry_description=x_registry_description, x_registry_description_encoded=x_registry_description_encoded, x_registry_name=x_registry_name, x_registry_name_encoded=x_registry_name_encoded)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->create_artifact: %s\n" % e)
 ```
 
@@ -133,19 +133,19 @@ Deletes an artifact completely, resulting in all versions of the artifact also b
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -155,7 +155,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Delete artifact
         api_instance.delete_artifact(group_id, artifact_id)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->delete_artifact: %s\n" % e)
 ```
 
@@ -203,19 +203,19 @@ Deletes all of the artifacts that exist in a given group.
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | Unique ID of an artifact group.
@@ -224,7 +224,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Deletes all artifacts in a group
         api_instance.delete_artifacts_in_group(group_id)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->delete_artifacts_in_group: %s\n" % e)
 ```
 
@@ -270,19 +270,19 @@ Gets the content for an artifact version in the registry using its globally uniq
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     global_id = 1 # int | Global identifier for an artifact version.
@@ -292,7 +292,7 @@ with registryclient.ApiClient() as api_client:
         # Get artifact by global ID
         api_response = api_instance.get_content_by_global_id(global_id)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->get_content_by_global_id: %s\n" % e)
 ```
 
@@ -339,19 +339,19 @@ Gets the content for an artifact version in the registry using the  SHA-256 hash
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     content_hash = "contentHash_example" # str | SHA-256 content hash for a single artifact content.
@@ -361,7 +361,7 @@ with registryclient.ApiClient() as api_client:
         # Get artifact content by SHA-256 hash
         api_response = api_instance.get_content_by_hash(content_hash)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->get_content_by_hash: %s\n" % e)
 ```
 
@@ -408,19 +408,19 @@ Gets the content for an artifact version in the registry using the unique conten
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     content_id = 1 # int | Global identifier for a single artifact content.
@@ -430,7 +430,7 @@ with registryclient.ApiClient() as api_client:
         # Get artifact content by ID
         api_response = api_instance.get_content_by_id(content_id)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->get_content_by_id: %s\n" % e)
 ```
 
@@ -477,19 +477,19 @@ Returns the latest version of the artifact in its raw form.  The `Content-Type` 
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -500,7 +500,7 @@ with registryclient.ApiClient() as api_client:
         # Get latest artifact
         api_response = api_instance.get_latest_artifact(group_id, artifact_id)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->get_latest_artifact: %s\n" % e)
 ```
 
@@ -548,22 +548,22 @@ Returns a list of all artifacts in the group.  This list is paged.
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.sort_by import SortBy
-from registryclient.model.error import Error
-from registryclient.model.sort_order import SortOrder
-from registryclient.model.artifact_search_results import ArtifactSearchResults
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.artifact_search_results import ArtifactSearchResults
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.sort_by import SortBy
+from apicurioregistryclient.model.sort_order import SortOrder
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | Unique ID of an artifact group.
@@ -577,7 +577,7 @@ with registryclient.ApiClient() as api_client:
         # List artifacts in group
         api_response = api_instance.list_artifacts_in_group(group_id)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->list_artifacts_in_group: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -586,7 +586,7 @@ with registryclient.ApiClient() as api_client:
         # List artifacts in group
         api_response = api_instance.list_artifacts_in_group(group_id, limit=limit, offset=offset, order=order, orderby=orderby)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->list_artifacts_in_group: %s\n" % e)
 ```
 
@@ -636,22 +636,22 @@ Returns a paginated list of all artifacts that match the provided filter criteri
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.sort_by import SortBy
-from registryclient.model.error import Error
-from registryclient.model.sort_order import SortOrder
-from registryclient.model.artifact_search_results import ArtifactSearchResults
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.artifact_search_results import ArtifactSearchResults
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.sort_by import SortBy
+from apicurioregistryclient.model.sort_order import SortOrder
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     name = "name_example" # str | Filter by artifact name. (optional)
@@ -674,7 +674,7 @@ with registryclient.ApiClient() as api_client:
         # Search for artifacts
         api_response = api_instance.search_artifacts(name=name, offset=offset, limit=limit, order=order, orderby=orderby, labels=labels, properties=properties, description=description, group=group)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->search_artifacts: %s\n" % e)
 ```
 
@@ -728,21 +728,21 @@ Returns a paginated list of all artifacts with at least one version that matches
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.error import Error
-from registryclient.model.artifact_search_results import ArtifactSearchResults
-from registryclient.model.artifact_type import ArtifactType
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.artifact_search_results import ArtifactSearchResults
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.artifact_type import ArtifactType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     body = open('/path/to/file', 'rb') # file_type | The content to search for.
@@ -758,7 +758,7 @@ with registryclient.ApiClient() as api_client:
         # Search for artifacts by content
         api_response = api_instance.search_artifacts_by_content(body)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->search_artifacts_by_content: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -767,7 +767,7 @@ with registryclient.ApiClient() as api_client:
         # Search for artifacts by content
         api_response = api_instance.search_artifacts_by_content(body, canonical=canonical, artifact_type=artifact_type, offset=offset, limit=limit, order=order, orderby=orderby)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->search_artifacts_by_content: %s\n" % e)
 ```
 
@@ -819,20 +819,20 @@ Updates an artifact by uploading new content.  The body of the request should be
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.artifact_meta_data import ArtifactMetaData
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.artifact_meta_data import ArtifactMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -849,7 +849,7 @@ with registryclient.ApiClient() as api_client:
         # Update artifact
         api_response = api_instance.update_artifact(group_id, artifact_id, body)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->update_artifact: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -858,7 +858,7 @@ with registryclient.ApiClient() as api_client:
         # Update artifact
         api_response = api_instance.update_artifact(group_id, artifact_id, body, x_registry_version=x_registry_version, x_registry_name=x_registry_name, x_registry_name_encoded=x_registry_name_encoded, x_registry_description=x_registry_description, x_registry_description_encoded=x_registry_description_encoded)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->update_artifact: %s\n" % e)
 ```
 
@@ -913,20 +913,20 @@ Updates the state of the artifact.  For example, you can use this to mark the la
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifacts_api
-from registryclient.model.update_state import UpdateState
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.update_state import UpdateState
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -939,7 +939,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Update artifact state
         api_instance.update_artifact_state(group_id, artifact_id, update_state)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->update_artifact_state: %s\n" % e)
 ```
 
