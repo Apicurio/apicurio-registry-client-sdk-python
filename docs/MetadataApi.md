@@ -1,4 +1,4 @@
-# registryclient.MetadataApi
+# apicurioregistryclient.MetadataApi
 
 All URIs are relative to *http://localhost*
 
@@ -24,19 +24,19 @@ Deletes the user-editable metadata properties of the artifact version.  Any prop
 
 ```python
 import time
-import registryclient
-from registryclient.api import metadata_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import metadata_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -47,7 +47,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Delete artifact version metadata
         api_instance.delete_artifact_version_meta_data(group_id, artifact_id, version)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling MetadataApi->delete_artifact_version_meta_data: %s\n" % e)
 ```
 
@@ -96,20 +96,20 @@ Gets the metadata for an artifact in the registry.  The returned metadata includ
 
 ```python
 import time
-import registryclient
-from registryclient.api import metadata_api
-from registryclient.model.artifact_meta_data import ArtifactMetaData
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import metadata_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.artifact_meta_data import ArtifactMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -120,7 +120,7 @@ with registryclient.ApiClient() as api_client:
         # Get artifact metadata
         api_response = api_instance.get_artifact_meta_data(group_id, artifact_id)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling MetadataApi->get_artifact_meta_data: %s\n" % e)
 ```
 
@@ -168,20 +168,20 @@ Retrieves the metadata for a single version of the artifact.  The version metada
 
 ```python
 import time
-import registryclient
-from registryclient.api import metadata_api
-from registryclient.model.error import Error
-from registryclient.model.version_meta_data import VersionMetaData
+import apicurioregistryclient
+from apicurioregistryclient.api import metadata_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.version_meta_data import VersionMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -193,7 +193,7 @@ with registryclient.ApiClient() as api_client:
         # Get artifact version metadata
         api_response = api_instance.get_artifact_version_meta_data(group_id, artifact_id, version)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling MetadataApi->get_artifact_version_meta_data: %s\n" % e)
 ```
 
@@ -242,20 +242,20 @@ Gets the metadata for an artifact that matches the raw content.  Searches the re
 
 ```python
 import time
-import registryclient
-from registryclient.api import metadata_api
-from registryclient.model.error import Error
-from registryclient.model.version_meta_data import VersionMetaData
+import apicurioregistryclient
+from apicurioregistryclient.api import metadata_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.version_meta_data import VersionMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -268,7 +268,7 @@ with registryclient.ApiClient() as api_client:
         # Get artifact version metadata by content
         api_response = api_instance.get_artifact_version_meta_data_by_content(group_id, artifact_id, body)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling MetadataApi->get_artifact_version_meta_data_by_content: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -277,7 +277,7 @@ with registryclient.ApiClient() as api_client:
         # Get artifact version metadata by content
         api_response = api_instance.get_artifact_version_meta_data_by_content(group_id, artifact_id, body, canonical=canonical)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling MetadataApi->get_artifact_version_meta_data_by_content: %s\n" % e)
 ```
 
@@ -327,20 +327,20 @@ Updates the editable parts of the artifact's metadata.  Not all metadata fields 
 
 ```python
 import time
-import registryclient
-from registryclient.api import metadata_api
-from registryclient.model.editable_meta_data import EditableMetaData
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import metadata_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.editable_meta_data import EditableMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -360,7 +360,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Update artifact metadata
         api_instance.update_artifact_meta_data(group_id, artifact_id, editable_meta_data)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling MetadataApi->update_artifact_meta_data: %s\n" % e)
 ```
 
@@ -409,20 +409,20 @@ Updates the user-editable portion of the artifact version's metadata.  Only some
 
 ```python
 import time
-import registryclient
-from registryclient.api import metadata_api
-from registryclient.model.editable_meta_data import EditableMetaData
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import metadata_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.editable_meta_data import EditableMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -443,7 +443,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Update artifact version metadata
         api_instance.update_artifact_version_meta_data(group_id, artifact_id, version, editable_meta_data)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling MetadataApi->update_artifact_version_meta_data: %s\n" % e)
 ```
 

@@ -1,4 +1,4 @@
-# registryclient
+# apicurioregistryclient
 Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
 
 The Apicurio Registry REST API enables client applications to manage the artifacts in the registry. This API provides create, read, update, and delete operations for schema and API artifacts, rules, versions, and metadata. 
@@ -41,7 +41,7 @@ pip install git+https://github.com/Apicurio/apicurio-registry-client-sdk-python.
 
 Then import the package:
 ```python
-import registryclient
+import apicurioregistryclient
 ```
 
 ### Setuptools
@@ -55,7 +55,7 @@ python setup.py install --user
 
 Then import the package:
 ```python
-import registryclient
+import apicurioregistryclient
 ```
 
 ## Getting Started
@@ -65,26 +65,26 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 
 import time
-import registryclient
+import apicurioregistryclient
 from pprint import pprint
-from registryclient.api import admin_api
-from registryclient.model.error import Error
-from registryclient.model.log_configuration import LogConfiguration
-from registryclient.model.named_log_configuration import NamedLogConfiguration
-from registryclient.model.role_mapping import RoleMapping
-from registryclient.model.rule import Rule
-from registryclient.model.rule_type import RuleType
-from registryclient.model.update_role import UpdateRole
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.log_configuration import LogConfiguration
+from apicurioregistryclient.model.named_log_configuration import NamedLogConfiguration
+from apicurioregistryclient.model.role_mapping import RoleMapping
+from apicurioregistryclient.model.rule import Rule
+from apicurioregistryclient.model.rule_type import RuleType
+from apicurioregistryclient.model.update_role import UpdateRole
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     rule = Rule(
@@ -95,7 +95,7 @@ with registryclient.ApiClient(configuration) as api_client:
     try:
         # Create global rule
         api_instance.create_global_rule(rule)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->create_global_rule: %s\n" % e)
 ```
 
@@ -198,21 +198,21 @@ apicurio@lists.jboss.org
 
 
 ## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in registryclient.apis and registryclient.models may fail with a
+If the OpenAPI document is large, imports in apicurioregistryclient.apis and apicurioregistryclient.models may fail with a
 RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
 
 Solution 1:
 Use specific imports for apis and models like:
-- `from registryclient.api.default_api import DefaultApi`
-- `from registryclient.model.pet import Pet`
+- `from apicurioregistryclient.api.default_api import DefaultApi`
+- `from apicurioregistryclient.model.pet import Pet`
 
 Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
 ```
 import sys
 sys.setrecursionlimit(1500)
-import registryclient
-from registryclient.apis import *
-from registryclient.models import *
+import apicurioregistryclient
+from apicurioregistryclient.apis import *
+from apicurioregistryclient.models import *
 ```
 

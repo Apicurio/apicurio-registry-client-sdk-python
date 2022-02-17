@@ -1,4 +1,4 @@
-# registryclient.ArtifactRulesApi
+# apicurioregistryclient.ArtifactRulesApi
 
 All URIs are relative to *http://localhost*
 
@@ -25,20 +25,20 @@ Adds a rule to the list of rules that get applied to the artifact when adding ne
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifact_rules_api
-from registryclient.model.error import Error
-from registryclient.model.rule import Rule
+import apicurioregistryclient
+from apicurioregistryclient.api import artifact_rules_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule import Rule
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifact_rules_api.ArtifactRulesApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -52,7 +52,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Create artifact rule
         api_instance.create_artifact_rule(group_id, artifact_id, rule)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactRulesApi->create_artifact_rule: %s\n" % e)
 ```
 
@@ -102,19 +102,19 @@ Deletes a rule from the artifact.  This results in the rule no longer applying f
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifact_rules_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import artifact_rules_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifact_rules_api.ArtifactRulesApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -125,7 +125,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Delete artifact rule
         api_instance.delete_artifact_rule(group_id, artifact_id, rule)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactRulesApi->delete_artifact_rule: %s\n" % e)
 ```
 
@@ -174,19 +174,19 @@ Deletes all of the rules configured for the artifact.  After this is done, the g
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifact_rules_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import artifact_rules_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifact_rules_api.ArtifactRulesApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -196,7 +196,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Delete artifact rules
         api_instance.delete_artifact_rules(group_id, artifact_id)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactRulesApi->delete_artifact_rules: %s\n" % e)
 ```
 
@@ -244,20 +244,20 @@ Returns information about a single rule configured for an artifact.  This is use
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifact_rules_api
-from registryclient.model.error import Error
-from registryclient.model.rule import Rule
+import apicurioregistryclient
+from apicurioregistryclient.api import artifact_rules_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule import Rule
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifact_rules_api.ArtifactRulesApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -269,7 +269,7 @@ with registryclient.ApiClient() as api_client:
         # Get artifact rule configuration
         api_response = api_instance.get_artifact_rule_config(group_id, artifact_id, rule)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactRulesApi->get_artifact_rule_config: %s\n" % e)
 ```
 
@@ -318,20 +318,20 @@ Returns a list of all rules configured for the artifact.  The set of rules deter
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifact_rules_api
-from registryclient.model.rule_type import RuleType
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import artifact_rules_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule_type import RuleType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifact_rules_api.ArtifactRulesApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -342,7 +342,7 @@ with registryclient.ApiClient() as api_client:
         # List artifact rules
         api_response = api_instance.list_artifact_rules(group_id, artifact_id)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactRulesApi->list_artifact_rules: %s\n" % e)
 ```
 
@@ -390,20 +390,20 @@ Tests whether an update to the artifact's content *would* succeed for the provid
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifact_rules_api
-from registryclient.model.error import Error
-from registryclient.model.rule_violation_error import RuleViolationError
+import apicurioregistryclient
+from apicurioregistryclient.api import artifact_rules_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule_violation_error import RuleViolationError
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifact_rules_api.ArtifactRulesApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -414,7 +414,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Test update artifact
         api_instance.test_update_artifact(group_id, artifact_id, body)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactRulesApi->test_update_artifact: %s\n" % e)
 ```
 
@@ -464,20 +464,20 @@ Updates the configuration of a single rule for the artifact.  The configuration 
 
 ```python
 import time
-import registryclient
-from registryclient.api import artifact_rules_api
-from registryclient.model.error import Error
-from registryclient.model.rule import Rule
+import apicurioregistryclient
+from apicurioregistryclient.api import artifact_rules_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule import Rule
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifact_rules_api.ArtifactRulesApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -493,7 +493,7 @@ with registryclient.ApiClient() as api_client:
         # Update artifact rule configuration
         api_response = api_instance.update_artifact_rule_config(group_id, artifact_id, rule, rule2)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactRulesApi->update_artifact_rule_config: %s\n" % e)
 ```
 
