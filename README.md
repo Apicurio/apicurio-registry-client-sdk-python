@@ -32,26 +32,11 @@ Python >=3.6
 ## Installation & Usage
 ### pip install
 
-If the python package is hosted on a repository, you can install directly using:
+The package is hosted on [PyPI](https://pypi.org/project/apicurioregistryclient/), you can install directly using:
 
 ```sh
-pip install git+https://github.com/Apicurio/apicurio-registry-client-sdk-python.git
+pip install apicurioregistryclient
 ```
-(you may need to run `pip` with root permission: `sudo pip install git+https://github.com/Apicurio/apicurio-registry-client-sdk-python.git`)
-
-Then import the package:
-```python
-import apicurioregistryclient
-```
-
-### Setuptools
-
-Install via [Setuptools](http://pypi.python.org/pypi/setuptools).
-
-```sh
-python setup.py install --user
-```
-(or `sudo python setup.py install` to install the package for all users)
 
 Then import the package:
 ```python
@@ -215,4 +200,3 @@ import apicurioregistryclient
 from apicurioregistryclient.apis import *
 from apicurioregistryclient.models import *
 ```
-
