@@ -24,6 +24,7 @@ jobs:
           git-repo-id: apicurio-registry-client-sdk-python
           additional-properties: "packageName=apicurioregistryclient"
           ignore-file-override: .openapi-generator-ignore
+          template: .github/templates
       - name: Clean up temp files
         run: rm -r tmp
       - uses: dorny/paths-filter@v2
