@@ -26,3 +26,4 @@
 .travis.yml
 git_push.sh
 .gitignore
+setup.py
