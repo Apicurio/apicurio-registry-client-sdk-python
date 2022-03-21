@@ -7,9 +7,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 configuration = apicurioregistryclient.Configuration(
-    host = os.environ['RHOAS_SERVICE_REGISTRY_URL'],
-    username=os.environ['RHOAS_SERVICE_ACCOUNT_CLIENT_ID'],
-    password=os.environ['RHOAS_SERVICE_ACCOUNT_CLIENT_SECRET'],
+    host = os.environ['SERVICE_REGISTRY_URL'],
+    username=os.environ['SERVICE_ACCOUNT_CLIENT_ID'],
+    password=os.environ['SERVICE_ACCOUNT_CLIENT_SECRET'],
 )
 
 artifact_id = "8f9231ac-9d2b-4619-81e0-86b5088dadd3"
