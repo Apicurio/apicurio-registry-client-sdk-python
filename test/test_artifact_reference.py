@@ -1,5 +1,3 @@
-# flake8: noqa
-
 """
     Apicurio Registry API [v2]
 
@@ -11,18 +9,28 @@
 """
 
 
-__version__ = "1.0.0"
+import sys
+import unittest
 
-# import ApiClient
-from apicurioregistryclient.api_client import ApiClient
+import apicurioregistryclient
+from apicurioregistryclient.model.artifact_reference import ArtifactReference
 
-# import Configuration
-from apicurioregistryclient.configuration import Configuration
 
-# import exceptions
-from apicurioregistryclient.exceptions import OpenApiException
-from apicurioregistryclient.exceptions import ApiAttributeError
-from apicurioregistryclient.exceptions import ApiTypeError
-from apicurioregistryclient.exceptions import ApiValueError
-from apicurioregistryclient.exceptions import ApiKeyError
-from apicurioregistryclient.exceptions import ApiException
+class TestArtifactReference(unittest.TestCase):
+    """ArtifactReference unit test stubs"""
+
+    def setUp(self):
+        pass
+
+    def tearDown(self):
+        pass
+
+    def testArtifactReference(self):
+        """Test ArtifactReference"""
+        # FIXME: construct object with mandatory attributes with example values
+        # model = ArtifactReference()  # noqa: E501
+        pass
+
+
+if __name__ == '__main__':
+    unittest.main()

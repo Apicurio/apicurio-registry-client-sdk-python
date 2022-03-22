@@ -1,5 +1,3 @@
-# flake8: noqa
-
 """
     Apicurio Registry API [v2]
 
@@ -11,18 +9,42 @@
 """
 
 
-__version__ = "1.0.0"
+import unittest
 
-# import ApiClient
-from apicurioregistryclient.api_client import ApiClient
+import apicurioregistryclient
+from apicurioregistryclient.api.default_api import DefaultApi  # noqa: E501
 
-# import Configuration
-from apicurioregistryclient.configuration import Configuration
 
-# import exceptions
-from apicurioregistryclient.exceptions import OpenApiException
-from apicurioregistryclient.exceptions import ApiAttributeError
-from apicurioregistryclient.exceptions import ApiTypeError
-from apicurioregistryclient.exceptions import ApiValueError
-from apicurioregistryclient.exceptions import ApiKeyError
-from apicurioregistryclient.exceptions import ApiException
+class TestDefaultApi(unittest.TestCase):
+    """DefaultApi unit test stubs"""
+
+    def setUp(self):
+        self.api = DefaultApi()  # noqa: E501
+
+    def tearDown(self):
+        pass
+
+    def test_references_by_content_hash(self):
+        """Test case for references_by_content_hash
+
+        Returns a list with all the references for the artifact with the given hash  # noqa: E501
+        """
+        pass
+
+    def test_references_by_content_id(self):
+        """Test case for references_by_content_id
+
+        Returns a list with all the references for the artifact with the given content id.  # noqa: E501
+        """
+        pass
+
+    def test_references_by_global_id(self):
+        """Test case for references_by_global_id
+
+        Returns a list with all the references for the artifact with the given global id.  # noqa: E501
+        """
+        pass
+
+
+if __name__ == '__main__':
+    unittest.main()

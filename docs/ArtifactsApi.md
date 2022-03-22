@@ -286,11 +286,21 @@ with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     global_id = 1 # int | Global identifier for an artifact version.
+    dereference = True # bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get artifact by global ID
         api_response = api_instance.get_content_by_global_id(global_id)
+        pprint(api_response)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling ArtifactsApi->get_content_by_global_id: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get artifact by global ID
+        api_response = api_instance.get_content_by_global_id(global_id, dereference=dereference)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->get_content_by_global_id: %s\n" % e)
@@ -302,6 +312,7 @@ with apicurioregistryclient.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **global_id** | **int**| Global identifier for an artifact version. |
+ **dereference** | **bool**| Allows the user to specify if the content should be dereferenced when being returned | [optional]
 
 ### Return type
 
@@ -494,11 +505,21 @@ with apicurioregistryclient.ApiClient() as api_client:
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
     artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+    dereference = True # bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get latest artifact
         api_response = api_instance.get_latest_artifact(group_id, artifact_id)
+        pprint(api_response)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling ArtifactsApi->get_latest_artifact: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get latest artifact
+        api_response = api_instance.get_latest_artifact(group_id, artifact_id, dereference=dereference)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->get_latest_artifact: %s\n" % e)
@@ -511,6 +532,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
  **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
+ **dereference** | **bool**| Allows the user to specify if the content should be dereferenced when being returned | [optional]
 
 ### Return type
 
@@ -667,12 +689,14 @@ with apicurioregistryclient.ApiClient() as api_client:
     ] # [str] | Filter by one or more name/value property.  Separate each name/value pair using a colon.  For example `properties=foo:bar` will return only artifacts with a custom property named `foo` and value `bar`. (optional)
     description = "description_example" # str | Filter by description. (optional)
     group = "group_example" # str | Filter by artifact group. (optional)
+    global_id = 1 # int | Filter by globalId. (optional)
+    content_id = 1 # int | Filter by contentId. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for artifacts
-        api_response = api_instance.search_artifacts(name=name, offset=offset, limit=limit, order=order, orderby=orderby, labels=labels, properties=properties, description=description, group=group)
+        api_response = api_instance.search_artifacts(name=name, offset=offset, limit=limit, order=order, orderby=orderby, labels=labels, properties=properties, description=description, group=group, global_id=global_id, content_id=content_id)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->search_artifacts: %s\n" % e)
@@ -692,6 +716,8 @@ Name | Type | Description  | Notes
  **properties** | **[str]**| Filter by one or more name/value property.  Separate each name/value pair using a colon.  For example &#x60;properties&#x3D;foo:bar&#x60; will return only artifacts with a custom property named &#x60;foo&#x60; and value &#x60;bar&#x60;. | [optional]
  **description** | **str**| Filter by description. | [optional]
  **group** | **str**| Filter by artifact group. | [optional]
+ **global_id** | **int**| Filter by globalId. | [optional]
+ **content_id** | **int**| Filter by contentId. | [optional]
 
 ### Return type
 

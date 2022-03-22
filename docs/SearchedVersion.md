@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **global_id** | **int** |  | 
 **version** | **str** |  | 
 **content_id** | **int** |  | 
+**references** | [**[ArtifactReference]**](ArtifactReference.md) |  | 
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **labels** | **[str]** |  | [optional] 
