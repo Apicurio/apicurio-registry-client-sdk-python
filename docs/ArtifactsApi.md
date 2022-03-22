@@ -667,12 +667,14 @@ with apicurioregistryclient.ApiClient() as api_client:
     ] # [str] | Filter by one or more name/value property.  Separate each name/value pair using a colon.  For example `properties=foo:bar` will return only artifacts with a custom property named `foo` and value `bar`. (optional)
     description = "description_example" # str | Filter by description. (optional)
     group = "group_example" # str | Filter by artifact group. (optional)
+    global_id = 1 # int | Filter by globalId. (optional)
+    content_id = 1 # int | Filter by contentId. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for artifacts
-        api_response = api_instance.search_artifacts(name=name, offset=offset, limit=limit, order=order, orderby=orderby, labels=labels, properties=properties, description=description, group=group)
+        api_response = api_instance.search_artifacts(name=name, offset=offset, limit=limit, order=order, orderby=orderby, labels=labels, properties=properties, description=description, group=group, global_id=global_id, content_id=content_id)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->search_artifacts: %s\n" % e)
@@ -692,6 +694,8 @@ Name | Type | Description  | Notes
  **properties** | **[str]**| Filter by one or more name/value property.  Separate each name/value pair using a colon.  For example &#x60;properties&#x3D;foo:bar&#x60; will return only artifacts with a custom property named &#x60;foo&#x60; and value &#x60;bar&#x60;. | [optional]
  **description** | **str**| Filter by description. | [optional]
  **group** | **str**| Filter by artifact group. | [optional]
+ **global_id** | **int**| Filter by globalId. | [optional]
+ **content_id** | **int**| Filter by contentId. | [optional]
 
 ### Return type
 
