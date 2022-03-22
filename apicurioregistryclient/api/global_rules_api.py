@@ -41,7 +41,9 @@ class GlobalRulesApi(object):
         self.create_global_rule_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules',
                 'operation_id': 'create_global_rule',
                 'http_method': 'POST',
@@ -91,7 +93,9 @@ class GlobalRulesApi(object):
         self.delete_all_global_rules_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules',
                 'operation_id': 'delete_all_global_rules',
                 'http_method': 'DELETE',
@@ -133,7 +137,9 @@ class GlobalRulesApi(object):
         self.delete_global_rule_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules/{rule}',
                 'operation_id': 'delete_global_rule',
                 'http_method': 'DELETE',
@@ -182,7 +188,9 @@ class GlobalRulesApi(object):
         self.get_global_rule_config_endpoint = _Endpoint(
             settings={
                 'response_type': (Rule,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules/{rule}',
                 'operation_id': 'get_global_rule_config',
                 'http_method': 'GET',
@@ -231,7 +239,9 @@ class GlobalRulesApi(object):
         self.list_global_rules_endpoint = _Endpoint(
             settings={
                 'response_type': ([RuleType],),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules',
                 'operation_id': 'list_global_rules',
                 'http_method': 'GET',
@@ -273,7 +283,9 @@ class GlobalRulesApi(object):
         self.update_global_rule_config_endpoint = _Endpoint(
             settings={
                 'response_type': (Rule,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules/{rule}',
                 'operation_id': 'update_global_rule_config',
                 'http_method': 'PUT',

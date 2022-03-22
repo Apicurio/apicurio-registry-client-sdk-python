@@ -43,7 +43,9 @@ class SearchApi(object):
         self.search_artifacts_endpoint = _Endpoint(
             settings={
                 'response_type': (ArtifactSearchResults,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/search/artifacts',
                 'operation_id': 'search_artifacts',
                 'http_method': 'GET',
@@ -142,7 +144,9 @@ class SearchApi(object):
         self.search_artifacts_by_content_endpoint = _Endpoint(
             settings={
                 'response_type': (ArtifactSearchResults,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/search/artifacts',
                 'operation_id': 'search_artifacts_by_content',
                 'http_method': 'POST',

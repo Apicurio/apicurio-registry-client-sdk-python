@@ -43,7 +43,9 @@ class VersionsApi(object):
         self.create_artifact_version_endpoint = _Endpoint(
             settings={
                 'response_type': (VersionMetaData,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions',
                 'operation_id': 'create_artifact_version',
                 'http_method': 'POST',
@@ -128,7 +130,9 @@ class VersionsApi(object):
         self.get_artifact_version_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}',
                 'operation_id': 'get_artifact_version',
                 'http_method': 'GET',
@@ -190,7 +194,9 @@ class VersionsApi(object):
         self.list_artifact_versions_endpoint = _Endpoint(
             settings={
                 'response_type': (VersionSearchResults,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions',
                 'operation_id': 'list_artifact_versions',
                 'http_method': 'GET',
@@ -255,7 +261,9 @@ class VersionsApi(object):
         self.update_artifact_version_state_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}/state',
                 'operation_id': 'update_artifact_version_state',
                 'http_method': 'PUT',

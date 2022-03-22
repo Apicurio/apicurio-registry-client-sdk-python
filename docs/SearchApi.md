@@ -17,6 +17,7 @@ Returns a paginated list of all artifacts that match the provided filter criteri
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -33,9 +34,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.SearchApi(api_client)
     name = "name_example" # str | Filter by artifact name. (optional)
@@ -87,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -113,6 +124,7 @@ Returns a paginated list of all artifacts with at least one version that matches
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -128,9 +140,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.SearchApi(api_client)
     body = open('/path/to/file', 'rb') # file_type | The content to search for.
@@ -178,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

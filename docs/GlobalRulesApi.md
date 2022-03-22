@@ -21,6 +21,7 @@ Adds a rule to the list of globally configured rules.  This operation can fail f
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -35,9 +36,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
     rule = Rule(
@@ -66,7 +77,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -94,6 +105,7 @@ Deletes all globally configured rules.  This operation can fail for the followin
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -107,9 +119,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
 
@@ -131,7 +153,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -157,6 +179,7 @@ Deletes a single global rule.  If this is the only rule configured, this is the 
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -171,9 +194,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -199,7 +232,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -226,6 +259,7 @@ Returns information about the named globally configured rule.  This operation ca
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -241,9 +275,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -270,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -297,6 +341,7 @@ Gets a list of all the currently configured global rules (if any).  This operati
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -311,9 +356,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
 
@@ -336,7 +391,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -362,6 +417,7 @@ Updates the configuration for a globally configured rule.  This operation can fa
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -377,9 +433,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -411,7 +477,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

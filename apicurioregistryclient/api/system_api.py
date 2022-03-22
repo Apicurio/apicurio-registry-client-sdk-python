@@ -40,7 +40,9 @@ class SystemApi(object):
         self.get_system_info_endpoint = _Endpoint(
             settings={
                 'response_type': (SystemInfo,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/system/info',
                 'operation_id': 'get_system_info',
                 'http_method': 'GET',

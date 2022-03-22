@@ -21,6 +21,7 @@ Deletes the user-editable metadata properties of the artifact version.  Any prop
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -34,9 +35,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -66,7 +77,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -93,6 +104,7 @@ Gets the metadata for an artifact in the registry.  The returned metadata includ
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -107,9 +119,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -138,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -165,6 +187,7 @@ Retrieves the metadata for a single version of the artifact.  The version metada
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -179,9 +202,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -212,7 +245,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -239,6 +272,7 @@ Gets the metadata for an artifact that matches the raw content.  Searches the re
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -253,9 +287,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -297,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -324,6 +368,7 @@ Updates the editable parts of the artifact's metadata.  Not all metadata fields 
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -338,9 +383,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -379,7 +434,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -406,6 +461,7 @@ Updates the user-editable portion of the artifact version's metadata.  Only some
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -420,9 +476,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = metadata_api.MetadataApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -463,7 +529,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

@@ -42,7 +42,9 @@ class MetadataApi(object):
         self.delete_artifact_version_meta_data_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta',
                 'operation_id': 'delete_artifact_version_meta_data',
                 'http_method': 'DELETE',
@@ -103,7 +105,9 @@ class MetadataApi(object):
         self.get_artifact_meta_data_endpoint = _Endpoint(
             settings={
                 'response_type': (ArtifactMetaData,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/meta',
                 'operation_id': 'get_artifact_meta_data',
                 'http_method': 'GET',
@@ -158,7 +162,9 @@ class MetadataApi(object):
         self.get_artifact_version_meta_data_endpoint = _Endpoint(
             settings={
                 'response_type': (VersionMetaData,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta',
                 'operation_id': 'get_artifact_version_meta_data',
                 'http_method': 'GET',
@@ -219,7 +225,9 @@ class MetadataApi(object):
         self.get_artifact_version_meta_data_by_content_endpoint = _Endpoint(
             settings={
                 'response_type': (VersionMetaData,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/meta',
                 'operation_id': 'get_artifact_version_meta_data_by_content',
                 'http_method': 'POST',
@@ -284,7 +292,9 @@ class MetadataApi(object):
         self.update_artifact_meta_data_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/meta',
                 'operation_id': 'update_artifact_meta_data',
                 'http_method': 'PUT',
@@ -346,7 +356,9 @@ class MetadataApi(object):
         self.update_artifact_version_meta_data_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta',
                 'operation_id': 'update_artifact_version_meta_data',
                 'http_method': 'PUT',
