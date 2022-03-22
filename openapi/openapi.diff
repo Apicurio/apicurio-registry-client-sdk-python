@@ -1,0 +1,27 @@
+diff --git a/openapi/openapi.json b/openapi/openapi.json
+index 8d54fa0..9372b41 100644
+--- a/openapi/openapi.json
++++ b/openapi/openapi.json
+@@ -2453,6 +2453,12 @@
+         "x-codegen-contextRoot": "/apis/registry/v2"
+     },
+     "components": {
++         "securitySchemes":{ 
++            "basicAuth": {
++                "type": "http", 
++                "scheme": "basic" 
++            }
++        },
+         "schemas": {
+             "EditableMetaData": {
+                 "title": "Root Type for EditableArtifactMetaData",
+@@ -3527,5 +3533,8 @@
+                 "excludeEnums": true
+             }
+         ]
+-    }
++    },
++    "security":[
++        {"basicAuth": []}
++    ]
+ }
