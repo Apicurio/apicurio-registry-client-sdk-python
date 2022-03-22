@@ -12,7 +12,8 @@ configuration = apicurioregistryclient.Configuration(
     password=os.environ['SERVICE_ACCOUNT_CLIENT_SECRET'],
 )
 
-artifact_id = "8f9231ac-9d2b-4619-81e0-86b5088dadd3"
+# configuration.debug = True
+
 group_id = "default"
 
 # Enter a context with an instance of the API client
@@ -21,8 +22,12 @@ with apicurioregistryclient.ApiClient(configuration) as api_client:
     api_instance = artifacts_api.ArtifactsApi(api_client)
 
     try:
-        ## Fetch artifact
-        response = api_instance.get_latest_artifact(group_id, artifact_id, async_req=False)
-        print(response)
+        result = api_instance.list_artifacts_in_group(group_id, async_req=False)
+        print(result["artifacts"])
+        if result["artifacts"] is not None:
+            for artifact in result["artifacts"]:
+                print("Fetching Artifact " + artifact["id"])
+                response = api_instance.get_latest_artifact(group_id, artifact["id"], async_req=False)
+
     except apicurioregistryclient.ApiException as e:
         print("Exception when fetching artifact: %s\n" % e)           
