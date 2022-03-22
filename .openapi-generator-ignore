@@ -27,3 +27,6 @@
 git_push.sh
 .gitignore
 setup.py
+.openapi-generator/*
+test/*
+README.md
