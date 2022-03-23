@@ -25,5 +25,9 @@ SERVICE_ACCOUNT_CLIENT_SECRET=b288da06-57ee-46c0-b708
 1. Run example
 
 ```
-python3 source/basic.py
+python3 api/basic.py
 ```
+
+## RHOAS specific 
+
+rhoas service-registry artifact create --artifact-id=message examples/example-schema.json 
