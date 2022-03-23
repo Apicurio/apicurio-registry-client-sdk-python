@@ -20,7 +20,7 @@ configuration = apicurioregistryclient.Configuration(
 
 ## Change if your registry instance using different group
 ## We recommend to use the same group for your artifact types
-group_id = "default"
+group_id = "example"
 
 # Enter a context with an instance of the API client
 with apicurioregistryclient.ApiClient(configuration) as api_client:
