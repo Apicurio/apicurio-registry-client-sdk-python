@@ -1,4 +1,4 @@
-rm -Rf ./openapi
+rm -Rf ./openapi/openapi.json
 wget https://raw.githubusercontent.com/Apicurio/apicurio-registry/master/app/src/main/resources-unfiltered/META-INF/resources/api-specifications/registry/v2/openapi.json -P ./openapi
 rm -Rf ./apicurioregistryclient
 
