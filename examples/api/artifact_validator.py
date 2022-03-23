@@ -5,8 +5,12 @@ import pprint
 import apicurioregistryclient
 from jsonschema import validate
 
+from apicurioregistryclient.api.artifacts_api import ArtifactsApi
+
 class RegistryArtifactValidator:
     """ Apicurio Registry Artifact validator
+    Downloads the latest schemas from group and caches them locally.
+    Uses jsonschema lib to validate json against the schema.
 
     Usage: 
         validator = RegistryArtifactValidator("default")
@@ -23,7 +27,7 @@ class RegistryArtifactValidator:
         self.artifact_cache = {}
         self.group = group_id
 
-    def build_artifacts_cache(self, api_instance):
+    def build_artifacts_cache(self, api_instance: ArtifactsApi):
         """ Builds a cache of all artifacts in the registry """
         try:
             result = api_instance.list_artifacts_in_group(self.group, async_req=False)
@@ -41,7 +45,7 @@ class RegistryArtifactValidator:
             pprint.pprint("Exception when fetching artifact: %s" % e)
 
 
-    def validate_json_schema(self, artifactId, jsonObject):
+    def validate_json_schema(self, artifactId: str, jsonObject: dict):
         if self.artifact_cache[artifactId] is not None:
             schema = self.artifact_cache[artifactId]
             try:
