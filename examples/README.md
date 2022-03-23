@@ -2,7 +2,7 @@
 
 Examples for APIcurio service registry.
 
-## Perequisites
+## Prerequisites
 
 1. Create .env file
 ```
