@@ -1,4 +1,4 @@
-# registryclient.SearchApi
+# apicurioregistryclient.SearchApi
 
 All URIs are relative to *http://localhost*
 
@@ -17,25 +17,36 @@ Returns a paginated list of all artifacts that match the provided filter criteri
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
-import registryclient
-from registryclient.api import search_api
-from registryclient.model.sort_by import SortBy
-from registryclient.model.error import Error
-from registryclient.model.sort_order import SortOrder
-from registryclient.model.artifact_search_results import ArtifactSearchResults
+import apicurioregistryclient
+from apicurioregistryclient.api import search_api
+from apicurioregistryclient.model.artifact_search_results import ArtifactSearchResults
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.sort_by import SortBy
+from apicurioregistryclient.model.sort_order import SortOrder
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.SearchApi(api_client)
     name = "name_example" # str | Filter by artifact name. (optional)
@@ -51,14 +62,16 @@ with registryclient.ApiClient() as api_client:
     ] # [str] | Filter by one or more name/value property.  Separate each name/value pair using a colon.  For example `properties=foo:bar` will return only artifacts with a custom property named `foo` and value `bar`. (optional)
     description = "description_example" # str | Filter by description. (optional)
     group = "group_example" # str | Filter by artifact group. (optional)
+    global_id = 1 # int | Filter by globalId. (optional)
+    content_id = 1 # int | Filter by contentId. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # Search for artifacts
-        api_response = api_instance.search_artifacts(name=name, offset=offset, limit=limit, order=order, orderby=orderby, labels=labels, properties=properties, description=description, group=group)
+        api_response = api_instance.search_artifacts(name=name, offset=offset, limit=limit, order=order, orderby=orderby, labels=labels, properties=properties, description=description, group=group, global_id=global_id, content_id=content_id)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling SearchApi->search_artifacts: %s\n" % e)
 ```
 
@@ -76,6 +89,8 @@ Name | Type | Description  | Notes
  **properties** | **[str]**| Filter by one or more name/value property.  Separate each name/value pair using a colon.  For example &#x60;properties&#x3D;foo:bar&#x60; will return only artifacts with a custom property named &#x60;foo&#x60; and value &#x60;bar&#x60;. | [optional]
  **description** | **str**| Filter by description. | [optional]
  **group** | **str**| Filter by artifact group. | [optional]
+ **global_id** | **int**| Filter by globalId. | [optional]
+ **content_id** | **int**| Filter by contentId. | [optional]
 
 ### Return type
 
@@ -83,7 +98,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -109,24 +124,35 @@ Returns a paginated list of all artifacts with at least one version that matches
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
-import registryclient
-from registryclient.api import search_api
-from registryclient.model.error import Error
-from registryclient.model.artifact_search_results import ArtifactSearchResults
-from registryclient.model.artifact_type import ArtifactType
+import apicurioregistryclient
+from apicurioregistryclient.api import search_api
+from apicurioregistryclient.model.artifact_search_results import ArtifactSearchResults
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.artifact_type import ArtifactType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.SearchApi(api_client)
     body = open('/path/to/file', 'rb') # file_type | The content to search for.
@@ -142,7 +168,7 @@ with registryclient.ApiClient() as api_client:
         # Search for artifacts by content
         api_response = api_instance.search_artifacts_by_content(body)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling SearchApi->search_artifacts_by_content: %s\n" % e)
 
     # example passing only required values which don't have defaults set
@@ -151,7 +177,7 @@ with registryclient.ApiClient() as api_client:
         # Search for artifacts by content
         api_response = api_instance.search_artifacts_by_content(body, canonical=canonical, artifact_type=artifact_type, offset=offset, limit=limit, order=order, orderby=orderby)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling SearchApi->search_artifacts_by_content: %s\n" % e)
 ```
 
@@ -174,7 +200,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

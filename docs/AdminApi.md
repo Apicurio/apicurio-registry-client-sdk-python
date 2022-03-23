@@ -10,15 +10,19 @@ Method | HTTP request | Description
 [**delete_global_rule**](AdminApi.md#delete_global_rule) | **DELETE** /admin/rules/{rule} | Delete global rule
 [**delete_role_mapping**](AdminApi.md#delete_role_mapping) | **DELETE** /admin/roleMappings/{principalId} | Delete a role mapping
 [**export_data**](AdminApi.md#export_data) | **GET** /admin/export | Export registry data
+[**get_config_property**](AdminApi.md#get_config_property) | **GET** /admin/config/properties/{propertyName} | Get the value of a configuration property
 [**get_global_rule_config**](AdminApi.md#get_global_rule_config) | **GET** /admin/rules/{rule} | Get global rule configuration
 [**get_log_configuration**](AdminApi.md#get_log_configuration) | **GET** /admin/loggers/{logger} | Get a single logger configuration
 [**get_role_mapping**](AdminApi.md#get_role_mapping) | **GET** /admin/roleMappings/{principalId} | Return a single role mapping
 [**import_data**](AdminApi.md#import_data) | **POST** /admin/import | Import registry data
+[**list_config_properties**](AdminApi.md#list_config_properties) | **GET** /admin/config/properties | List all configuration properties
 [**list_global_rules**](AdminApi.md#list_global_rules) | **GET** /admin/rules | List global rules
 [**list_log_configurations**](AdminApi.md#list_log_configurations) | **GET** /admin/loggers | List logging configurations
 [**list_role_mappings**](AdminApi.md#list_role_mappings) | **GET** /admin/roleMappings | List all role mappings
 [**remove_log_configuration**](AdminApi.md#remove_log_configuration) | **DELETE** /admin/loggers/{logger} | Removes logger configuration
+[**reset_config_property**](AdminApi.md#reset_config_property) | **DELETE** /admin/config/properties/{propertyName} | Reset a configuration property
 [**set_log_configuration**](AdminApi.md#set_log_configuration) | **PUT** /admin/loggers/{logger} | Set a logger&#39;s configuration
+[**update_config_property**](AdminApi.md#update_config_property) | **PUT** /admin/config/properties/{propertyName} | Update a configuration property
 [**update_global_rule_config**](AdminApi.md#update_global_rule_config) | **PUT** /admin/rules/{rule} | Update global rule configuration
 [**update_role_mapping**](AdminApi.md#update_role_mapping) | **PUT** /admin/roleMappings/{principalId} | Update a role mapping
 
@@ -32,6 +36,7 @@ Adds a rule to the list of globally configured rules.  This operation can fail f
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -46,9 +51,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     rule = Rule(
@@ -77,7 +92,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -105,6 +120,7 @@ Creates a new mapping between a user/principal and a role.  This operation can f
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -119,9 +135,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     role_mapping = RoleMapping(
@@ -151,7 +177,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -177,6 +203,7 @@ Deletes all globally configured rules.  This operation can fail for the followin
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -190,9 +217,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
 
@@ -214,7 +251,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -240,6 +277,7 @@ Deletes a single global rule.  If this is the only rule configured, this is the 
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -254,9 +292,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -282,7 +330,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -309,6 +357,7 @@ Deletes a single role mapping, effectively denying access to a user/principal.  
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -322,9 +371,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     principal_id = "principalId_example" # str | Unique id of a principal (typically either a user or service account).
@@ -350,7 +409,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -377,6 +436,7 @@ Exports registry data as a ZIP archive.
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -390,16 +450,28 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
+    for_browser = True # bool | Indicates if the operation is done for a browser.  If true, the response will be a JSON payload with a property called `href`.  This `href` will be a single-use, naked download link suitable for use by a web browser to download the content. (optional)
 
-    # example, this endpoint has no required or optional parameters
+    # example passing only required values which don't have defaults set
+    # and optional values
     try:
         # Export registry data
-        api_response = api_instance.export_data()
+        api_response = api_instance.export_data(for_browser=for_browser)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->export_data: %s\n" % e)
@@ -407,7 +479,10 @@ with apicurioregistryclient.ApiClient() as api_client:
 
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **for_browser** | **bool**| Indicates if the operation is done for a browser.  If true, the response will be a JSON payload with a property called &#x60;href&#x60;.  This &#x60;href&#x60; will be a single-use, naked download link suitable for use by a web browser to download the content. | [optional]
 
 ### Return type
 
@@ -415,7 +490,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -432,6 +507,87 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **get_config_property**
+> ConfigurationProperty get_config_property(property_name)
+
+Get the value of a configuration property
+
+Returns the value of a single configuration property.  This operation may fail for one of the following reasons:  * Property not found or not configured (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+
+### Example
+
+* Basic Authentication (basicAuth):
+
+```python
+import time
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.configuration_property import ConfigurationProperty
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = apicurioregistryclient.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with apicurioregistryclient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = admin_api.AdminApi(api_client)
+    property_name = "propertyName_example" # str | The name of a configuration property.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get the value of a configuration property
+        api_response = api_instance.get_config_property(property_name)
+        pprint(api_response)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling AdminApi->get_config_property: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **property_name** | **str**| The name of a configuration property. |
+
+### Return type
+
+[**ConfigurationProperty**](ConfigurationProperty.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The configuration property value. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **get_global_rule_config**
 > Rule get_global_rule_config(rule)
 
@@ -441,6 +597,7 @@ Returns information about the named globally configured rule.  This operation ca
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -456,9 +613,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -485,7 +652,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -512,6 +679,7 @@ Returns the configured logger configuration for the provided logger name, if no 
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -526,9 +694,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     logger = "logger_example" # str | The name of a single logger.
@@ -555,7 +733,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -581,6 +759,7 @@ Gets the details of a single role mapping (by principalId).  This operation can 
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -595,9 +774,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     principal_id = "principalId_example" # str | Unique id of a principal (typically either a user or service account).
@@ -624,7 +813,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -651,6 +840,7 @@ Imports registry data that was previously exported using the `/admin/export` ope
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -664,17 +854,37 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     body = open('/path/to/file', 'rb') # file_type | The ZIP file representing the previously exported registry data.
+    x_registry_preserve_global_id = True # bool | If this header is set to false, global ids of imported data will be ignored and replaced by next id in global id sequence. This allows to import any data even thought the global ids would cause a conflict. (optional)
+    x_registry_preserve_content_id = True # bool | If this header is set to false, content ids of imported data will be ignored and replaced by next id in content id sequence. The mapping between content and artifacts will be preserved. This allows to import any data even thought the content ids would cause a conflict. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Import registry data
         api_instance.import_data(body)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling AdminApi->import_data: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Import registry data
+        api_instance.import_data(body, x_registry_preserve_global_id=x_registry_preserve_global_id, x_registry_preserve_content_id=x_registry_preserve_content_id)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling AdminApi->import_data: %s\n" % e)
 ```
@@ -685,6 +895,8 @@ with apicurioregistryclient.ApiClient() as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **body** | **file_type**| The ZIP file representing the previously exported registry data. |
+ **x_registry_preserve_global_id** | **bool**| If this header is set to false, global ids of imported data will be ignored and replaced by next id in global id sequence. This allows to import any data even thought the global ids would cause a conflict. | [optional]
+ **x_registry_preserve_content_id** | **bool**| If this header is set to false, content ids of imported data will be ignored and replaced by next id in content id sequence. The mapping between content and artifacts will be preserved. This allows to import any data even thought the content ids would cause a conflict. | [optional]
 
 ### Return type
 
@@ -692,7 +904,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -709,6 +921,82 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_config_properties**
+> [ConfigurationProperty] list_config_properties()
+
+List all configuration properties
+
+Returns a list of all configuration properties that have been set.  The list is not paged.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`) 
+
+### Example
+
+* Basic Authentication (basicAuth):
+
+```python
+import time
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.configuration_property import ConfigurationProperty
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = apicurioregistryclient.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with apicurioregistryclient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = admin_api.AdminApi(api_client)
+
+    # example, this endpoint has no required or optional parameters
+    try:
+        # List all configuration properties
+        api_response = api_instance.list_config_properties()
+        pprint(api_response)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling AdminApi->list_config_properties: %s\n" % e)
+```
+
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[ConfigurationProperty]**](ConfigurationProperty.md)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | On a successful response, returns a list of configuration properties. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_global_rules**
 > [RuleType] list_global_rules()
 
@@ -718,6 +1006,7 @@ Gets a list of all the currently configured global rules (if any).  This operati
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -732,9 +1021,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
 
@@ -757,7 +1056,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -783,6 +1082,7 @@ List all of the configured logging levels.  These override the default logging c
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -797,9 +1097,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
 
@@ -822,7 +1132,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -848,6 +1158,7 @@ Gets a list of all role mappings configured in the registry (if any).  This oper
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -862,9 +1173,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
 
@@ -887,7 +1208,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -913,6 +1234,7 @@ Removes the configured logger configuration (if any) for the given logger.
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -927,9 +1249,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     logger = "logger_example" # str | The name of a single logger.
@@ -956,7 +1288,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -973,6 +1305,85 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **reset_config_property**
+> reset_config_property(property_name)
+
+Reset a configuration property
+
+Resets the value of a single configuration property.  This will return the property to its default value (see external documentation for supported properties and their default values).  This operation may fail for one of the following reasons:  * Property not found or not configured (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+
+### Example
+
+* Basic Authentication (basicAuth):
+
+```python
+import time
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = apicurioregistryclient.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with apicurioregistryclient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = admin_api.AdminApi(api_client)
+    property_name = "propertyName_example" # str | The name of a configuration property.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Reset a configuration property
+        api_instance.reset_config_property(property_name)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling AdminApi->reset_config_property: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **property_name** | **str**| The name of a configuration property. |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The configuration property was deleted. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **set_log_configuration**
 > NamedLogConfiguration set_log_configuration(logger, log_configuration)
 
@@ -982,6 +1393,7 @@ Configures the logger referenced by the provided logger name with the given conf
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -997,9 +1409,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     logger = "logger_example" # str | The name of a single logger.
@@ -1030,7 +1452,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1047,6 +1469,90 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **update_config_property**
+> update_config_property(property_name, update_configuration_property)
+
+Update a configuration property
+
+Updates the value of a single configuration property.  This operation may fail for one of the following reasons:  * Property not found or not configured (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+
+### Example
+
+* Basic Authentication (basicAuth):
+
+```python
+import time
+import apicurioregistryclient
+from apicurioregistryclient.api import admin_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.update_configuration_property import UpdateConfigurationProperty
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = apicurioregistryclient.Configuration(
+    host = "http://localhost"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with apicurioregistryclient.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = admin_api.AdminApi(api_client)
+    property_name = "propertyName_example" # str | The name of a configuration property.
+    update_configuration_property = UpdateConfigurationProperty(
+        value="value_example",
+    ) # UpdateConfigurationProperty | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update a configuration property
+        api_instance.update_config_property(property_name, update_configuration_property)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling AdminApi->update_config_property: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **property_name** | **str**| The name of a configuration property. |
+ **update_configuration_property** | [**UpdateConfigurationProperty**](UpdateConfigurationProperty.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[basicAuth](../README.md#basicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The configuration property was updated. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **update_global_rule_config**
 > Rule update_global_rule_config(rule, rule2)
 
@@ -1056,6 +1562,7 @@ Updates the configuration for a globally configured rule.  This operation can fa
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -1071,9 +1578,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -1105,7 +1622,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -1132,6 +1649,7 @@ Updates a single role mapping for one user/principal.  This operation can fail f
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -1146,9 +1664,19 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = admin_api.AdminApi(api_client)
     principal_id = "principalId_example" # str | Unique id of a principal (typically either a user or service account).
@@ -1178,7 +1706,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 

@@ -1,4 +1,4 @@
-# registryclient.GlobalRulesApi
+# apicurioregistryclient.GlobalRulesApi
 
 All URIs are relative to *http://localhost*
 
@@ -21,23 +21,34 @@ Adds a rule to the list of globally configured rules.  This operation can fail f
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
-import registryclient
-from registryclient.api import global_rules_api
-from registryclient.model.error import Error
-from registryclient.model.rule import Rule
+import apicurioregistryclient
+from apicurioregistryclient.api import global_rules_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule import Rule
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
     rule = Rule(
@@ -49,7 +60,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Create global rule
         api_instance.create_global_rule(rule)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling GlobalRulesApi->create_global_rule: %s\n" % e)
 ```
 
@@ -66,7 +77,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -94,22 +105,33 @@ Deletes all globally configured rules.  This operation can fail for the followin
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
-import registryclient
-from registryclient.api import global_rules_api
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import global_rules_api
+from apicurioregistryclient.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
 
@@ -117,7 +139,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Delete all global rules
         api_instance.delete_all_global_rules()
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling GlobalRulesApi->delete_all_global_rules: %s\n" % e)
 ```
 
@@ -131,7 +153,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -157,23 +179,34 @@ Deletes a single global rule.  If this is the only rule configured, this is the 
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
-import registryclient
-from registryclient.api import global_rules_api
-from registryclient.model.rule_type import RuleType
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import global_rules_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule_type import RuleType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -182,7 +215,7 @@ with registryclient.ApiClient() as api_client:
     try:
         # Delete global rule
         api_instance.delete_global_rule(rule)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling GlobalRulesApi->delete_global_rule: %s\n" % e)
 ```
 
@@ -199,7 +232,7 @@ void (empty response body)
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -226,24 +259,35 @@ Returns information about the named globally configured rule.  This operation ca
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
-import registryclient
-from registryclient.api import global_rules_api
-from registryclient.model.rule_type import RuleType
-from registryclient.model.error import Error
-from registryclient.model.rule import Rule
+import apicurioregistryclient
+from apicurioregistryclient.api import global_rules_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule import Rule
+from apicurioregistryclient.model.rule_type import RuleType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -253,7 +297,7 @@ with registryclient.ApiClient() as api_client:
         # Get global rule configuration
         api_response = api_instance.get_global_rule_config(rule)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling GlobalRulesApi->get_global_rule_config: %s\n" % e)
 ```
 
@@ -270,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -297,23 +341,34 @@ Gets a list of all the currently configured global rules (if any).  This operati
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
-import registryclient
-from registryclient.api import global_rules_api
-from registryclient.model.rule_type import RuleType
-from registryclient.model.error import Error
+import apicurioregistryclient
+from apicurioregistryclient.api import global_rules_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule_type import RuleType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
 
@@ -322,7 +377,7 @@ with registryclient.ApiClient() as api_client:
         # List global rules
         api_response = api_instance.list_global_rules()
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling GlobalRulesApi->list_global_rules: %s\n" % e)
 ```
 
@@ -336,7 +391,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
@@ -362,24 +417,35 @@ Updates the configuration for a globally configured rule.  This operation can fa
 
 ### Example
 
+* Basic Authentication (basicAuth):
 
 ```python
 import time
-import registryclient
-from registryclient.api import global_rules_api
-from registryclient.model.rule_type import RuleType
-from registryclient.model.error import Error
-from registryclient.model.rule import Rule
+import apicurioregistryclient
+from apicurioregistryclient.api import global_rules_api
+from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.rule import Rule
+from apicurioregistryclient.model.rule_type import RuleType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = registryclient.Configuration(
+configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: basicAuth
+configuration = apicurioregistryclient.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
 
 # Enter a context with an instance of the API client
-with registryclient.ApiClient() as api_client:
+with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = global_rules_api.GlobalRulesApi(api_client)
     rule = RuleType("VALIDITY") # RuleType | The unique name/type of a rule.
@@ -393,7 +459,7 @@ with registryclient.ApiClient() as api_client:
         # Update global rule configuration
         api_response = api_instance.update_global_rule_config(rule, rule2)
         pprint(api_response)
-    except registryclient.ApiException as e:
+    except apicurioregistryclient.ApiException as e:
         print("Exception when calling GlobalRulesApi->update_global_rule_config: %s\n" % e)
 ```
 
@@ -411,7 +477,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[basicAuth](../README.md#basicAuth)
 
 ### HTTP request headers
 
