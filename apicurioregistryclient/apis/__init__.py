@@ -21,4 +21,3 @@ from apicurioregistryclient.api.metadata_api import MetadataApi
 from apicurioregistryclient.api.system_api import SystemApi
 from apicurioregistryclient.api.users_api import UsersApi
 from apicurioregistryclient.api.versions_api import VersionsApi
-from apicurioregistryclient.api.default_api import DefaultApi
