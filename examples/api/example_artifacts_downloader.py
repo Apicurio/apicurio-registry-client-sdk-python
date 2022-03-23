@@ -3,7 +3,7 @@ import os
 import pprint
 import apicurioregistryclient
 from apicurioregistryclient.api import artifacts_api
-from utils import saveApiFile
+from utils import save_api_file
 
 from dotenv import load_dotenv
 
@@ -37,7 +37,7 @@ with apicurioregistryclient.ApiClient(configuration) as api_client:
                 schemaFile = response.read()
                 schemaFileName = artifact["id"] + "." + artifact["type"].value.lower()
                 print(f"Saving artifact as {schemaFileName}")
-                saveApiFile(schemaFileName, schemaFile)
+                save_api_file(schemaFileName, schemaFile)
         else:
             pprint.pprint("No artifacts found in group ", group_id)
 

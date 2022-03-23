@@ -6,7 +6,7 @@ from time import time
 import apicurioregistryclient
 from apicurioregistryclient.api import artifacts_api
 from artifact_validator import RegistryArtifactValidator
-from utils import saveApiFile
+from utils import seed_schema_from_file
 
 from dotenv import load_dotenv
 
@@ -24,6 +24,7 @@ configuration = apicurioregistryclient.Configuration(
 ## Change if your registry instance using different group
 ## We recommend to use the same group for your artifact types
 group_id = "default"
+artifact_id = "message_" + str(int(time()))
 
 valid_object = {
     "message": "Hello World",
@@ -38,12 +39,16 @@ invalid_object = {
 with apicurioregistryclient.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
+
+    seed_schema_from_file(api_instance, group_id, artifact_id)
+
+    ## Validate schema
     validator = RegistryArtifactValidator("default")
     ## Initiallize the cache from API
     validator.build_artifacts_cache(api_instance)
     
     print("\nValidating valid json")
-    errors = validator.validate_json_schema("message", valid_object)
+    errors = validator.validate_json_schema(artifact_id, valid_object)
     print("Errors from validator for %s" % valid_object)
     print(errors)
 
