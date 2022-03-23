@@ -1,12 +1,9 @@
 
-
-# Helper method to save api files in temporary folder
 import io
-
+import json
 from apicurioregistryclient import api
 from apicurioregistryclient.api.artifacts_api import ArtifactsApi
 from apicurioregistryclient.model.artifact_type import ArtifactType
-
 
 def save_api_file(name, content):
     with open("./temp/" + name, "w+b") as file:
@@ -21,14 +18,15 @@ def save_api_file(name, content):
 # 2. create schema object using api_instance.create_artifact
 
 
+
 def seed_schema_from_file(api_instance: ArtifactsApi, group: str, artifact_id: str):
-    with open("./message.jsonschema", "r") as file:
+     with open("./message.json", "r") as file:
         try:
-            schema = io.StringIO(file.read())
-            result = api_instance.create_artifact(group, schema,
-                                                  async_req=False,
+            result = api_instance.create_artifact(group, file ,
                                                   x_registry_artifact_type="JSON",
-                                                  x_registry_artifact_id=artifact_id)
+                                                  x_registry_artifact_id=artifact_id,
+                                                  _content_type="application/binary"
+                                                  )
             print("Schema created: " + result["id"])
         except Exception as e:
             print("Error creating schema: " + str(e))
