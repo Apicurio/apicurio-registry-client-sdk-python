@@ -67,3 +67,6 @@ python3 api/example_json_validator.py
 Example uses `artifact_validator.py` module that can be reused in other projects to provide 
 out of the box validation for JSON Schemas.
 
+Example also includes protobuf file that can be used to generate Python code for parsing GRPC requests.
+For more information see: https://developers.google.com/protocol-buffers/docs/pythontutorial
+

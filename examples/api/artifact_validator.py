@@ -45,6 +45,16 @@ class RegistryArtifactValidator:
             pprint.pprint("Exception when fetching artifact: %s" % e)
 
 
+    def validate_protobuf_schema(self, artifactId: str, jsonObject: dict):
+        if self.artifact_cache[artifactId] is not None:
+            schema = self.artifact_cache[artifactId]
+            try:
+                return validate(instance=jsonObject, schema=json.loads(schema))
+            except Exception as e:
+                return e
+        else:
+            raise Exception("Artifact not found in cache. Are you using the right artifactId: " + artifactId)
+    
     def validate_json_schema(self, artifactId: str, jsonObject: dict):
         if self.artifact_cache.get(artifactId, None) is not None:
             schema = self.artifact_cache[artifactId]

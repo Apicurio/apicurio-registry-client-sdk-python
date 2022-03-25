@@ -13,17 +13,14 @@ def save_api_file(name, content):
         except Exception as e:
             print("Error writing file: " + str(e))
 
-# Helper method to seed registry with example artifact
-# 1. read message.jsonschema file
-# 2. create schema object using api_instance.create_artifact
 
-
-
-def seed_schema_from_file(api_instance: ArtifactsApi, group: str, artifact_id: str):
-     with open("./message.json", "r") as file:
+def seed_schema_from_file(api_instance: ArtifactsApi, group: str, 
+    artifact_id: str, location: str, artifact_type = "JSON"):
+    """ Helper method to seed registry with example artifact """
+    with open(location, "r") as file:
         try:
             result = api_instance.create_artifact(group, file ,
-                                                  x_registry_artifact_type="JSON",
+                                                  x_registry_artifact_type=artifact_type,
                                                   x_registry_artifact_id=artifact_id,
                                                   _content_type="application/binary"
                                                   )
