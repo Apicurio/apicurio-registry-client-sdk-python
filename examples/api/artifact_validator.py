@@ -44,7 +44,6 @@ class RegistryArtifactValidator:
         except apicurioregistryclient.ApiException as e:
             pprint.pprint("Exception when fetching artifact: %s" % e)
 
-
     def validate_json_schema(self, artifactId: str, jsonObject: dict):
         if self.artifact_cache.get(artifactId, None) is not None:
             schema = self.artifact_cache[artifactId]
