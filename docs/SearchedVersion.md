@@ -5,13 +5,14 @@ Models a single artifact from the result set returned when searching for artifac
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_on** | **datetime** |  | 
+**created_on** | **str** |  | 
 **created_by** | **str** |  | 
 **type** | [**ArtifactType**](ArtifactType.md) |  | 
 **state** | [**ArtifactState**](ArtifactState.md) |  | 
 **global_id** | **int** |  | 
 **version** | **str** |  | 
 **content_id** | **int** |  | 
+**references** | [**[ArtifactReference]**](ArtifactReference.md) |  | 
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
 **labels** | **[str]** |  | [optional] 
