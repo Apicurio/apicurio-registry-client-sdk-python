@@ -8,7 +8,7 @@ Examples for APIcurio service registry.
 
 ```
 pip install .
-pip install jsonschema
+pip install jsonschema python-dotenv
 ```
 
 2. Create .env file
@@ -44,10 +44,10 @@ download all artifacts from into your local file system
 
 To run example execute: 
 ```
-python3 api/example_artifacts_downloader.py 
+python3 api/example_artifacts_downloader.py <optional-group-id>
 ```
 
-> NOTE: please consider changing group_id variable to point to different artifact group.
+If `<optional-group-id>` is not passed, "default" will be used.
 
 Example will create all artifact files in `./temp` folder. 
  

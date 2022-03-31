@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 import os
 import pprint
+import sys
+
 import apicurioregistryclient
 from apicurioregistryclient.api import artifacts_api
 from utils import save_api_file
@@ -10,7 +12,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 configuration = apicurioregistryclient.Configuration(
-    host = os.environ['SERVICE_REGISTRY_URL'],
+    host=os.environ['SERVICE_REGISTRY_URL'],
     username=os.environ['SERVICE_ACCOUNT_CLIENT_ID'],
     password=os.environ['SERVICE_ACCOUNT_CLIENT_SECRET'],
 )
@@ -20,7 +22,10 @@ configuration = apicurioregistryclient.Configuration(
 
 ## Change if your registry instance using different group
 ## We recommend to use the same group for your artifact types
-group_id = "example"
+group_id = "default"
+
+if sys.argv[0]:
+    group_id = sys.argv[0]
 
 # Enter a context with an instance of the API client
 with apicurioregistryclient.ApiClient(configuration) as api_client:
@@ -42,4 +47,4 @@ with apicurioregistryclient.ApiClient(configuration) as api_client:
             pprint.pprint("No artifacts found in group ", group_id)
 
     except apicurioregistryclient.ApiException as e:
-        pprint.pprint("Exception when fetching artifact: %s\n" % e)           
+        pprint.pprint("Exception when fetching artifact: %s\n" % e)
