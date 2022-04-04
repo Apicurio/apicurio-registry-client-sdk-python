@@ -12,6 +12,9 @@ Method | HTTP request | Description
 [**get_content_by_id**](ArtifactsApi.md#get_content_by_id) | **GET** /ids/contentIds/{contentId}/ | Get artifact content by ID
 [**get_latest_artifact**](ArtifactsApi.md#get_latest_artifact) | **GET** /groups/{groupId}/artifacts/{artifactId} | Get latest artifact
 [**list_artifacts_in_group**](ArtifactsApi.md#list_artifacts_in_group) | **GET** /groups/{groupId}/artifacts | List artifacts in group
+[**references_by_content_hash**](ArtifactsApi.md#references_by_content_hash) | **GET** /ids/contentHashes/{contentHash}/references | Returns a list with all the references for the artifact with the given hash
+[**references_by_content_id**](ArtifactsApi.md#references_by_content_id) | **GET** /ids/contentIds/{contentId}/references | Returns a list with all the references for the artifact with the given content id.
+[**references_by_global_id**](ArtifactsApi.md#references_by_global_id) | **GET** /ids/globalIds/{globalId}/references | Returns a list with all the references for the artifact with the given global id.
 [**search_artifacts**](ArtifactsApi.md#search_artifacts) | **GET** /search/artifacts | Search for artifacts
 [**search_artifacts_by_content**](ArtifactsApi.md#search_artifacts_by_content) | **POST** /search/artifacts | Search for artifacts by content
 [**update_artifact**](ArtifactsApi.md#update_artifact) | **PUT** /groups/{groupId}/artifacts/{artifactId} | Update artifact
@@ -27,7 +30,6 @@ Creates a new artifact by posting the artifact content.  The body of the request
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -35,6 +37,7 @@ import apicurioregistryclient
 from apicurioregistryclient.api import artifacts_api
 from apicurioregistryclient.model.if_exists import IfExists
 from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.content_create_request import ContentCreateRequest
 from apicurioregistryclient.model.artifact_type import ArtifactType
 from apicurioregistryclient.model.rule_violation_error import RuleViolationError
 from apicurioregistryclient.model.artifact_meta_data import ArtifactMetaData
@@ -45,19 +48,9 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | Unique ID of an artifact group.
@@ -113,11 +106,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/create.extended+json
  - **Accept**: application/json
 
 
@@ -141,7 +134,6 @@ Deletes an artifact completely, resulting in all versions of the artifact also b
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -155,19 +147,9 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -195,7 +177,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -222,7 +204,6 @@ Deletes all of the artifacts that exist in a given group.
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -236,19 +217,9 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | Unique ID of an artifact group.
@@ -274,7 +245,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -300,7 +271,6 @@ Gets the content for an artifact version in the registry using its globally uniq
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -314,27 +284,27 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     global_id = 1 # int | Global identifier for an artifact version.
+    dereference = True # bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get artifact by global ID
         api_response = api_instance.get_content_by_global_id(global_id)
+        pprint(api_response)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling ArtifactsApi->get_content_by_global_id: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get artifact by global ID
+        api_response = api_instance.get_content_by_global_id(global_id, dereference=dereference)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->get_content_by_global_id: %s\n" % e)
@@ -346,6 +316,7 @@ with apicurioregistryclient.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **global_id** | **int**| Global identifier for an artifact version. |
+ **dereference** | **bool**| Allows the user to specify if the content should be dereferenced when being returned | [optional]
 
 ### Return type
 
@@ -353,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -380,7 +351,6 @@ Gets the content for an artifact version in the registry using the  SHA-256 hash
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -394,19 +364,9 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     content_hash = "contentHash_example" # str | SHA-256 content hash for a single artifact content.
@@ -433,7 +393,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -460,7 +420,6 @@ Gets the content for an artifact version in the registry using the unique conten
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -474,19 +433,9 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     content_id = 1 # int | Global identifier for a single artifact content.
@@ -513,7 +462,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -540,7 +489,6 @@ Returns the latest version of the artifact in its raw form.  The `Content-Type` 
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -554,28 +502,28 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
     artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+    dereference = True # bool | Allows the user to specify if the content should be dereferenced when being returned (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get latest artifact
         api_response = api_instance.get_latest_artifact(group_id, artifact_id)
+        pprint(api_response)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling ArtifactsApi->get_latest_artifact: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get latest artifact
+        api_response = api_instance.get_latest_artifact(group_id, artifact_id, dereference=dereference)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->get_latest_artifact: %s\n" % e)
@@ -588,6 +536,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
  **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
+ **dereference** | **bool**| Allows the user to specify if the content should be dereferenced when being returned | [optional]
 
 ### Return type
 
@@ -595,7 +544,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -622,7 +571,6 @@ Returns a list of all artifacts in the group.  This list is paged.
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -639,19 +587,9 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | Unique ID of an artifact group.
@@ -695,7 +633,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -712,6 +650,207 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **references_by_content_hash**
+> [ArtifactReference] references_by_content_hash(UNKNOWN_PARAMETER_NAME)
+
+Returns a list with all the references for the artifact with the given hash
+
+Returns a list containing all the artifact references using the artifact content hash.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`) 
+
+### Example
+
+
+```python
+import time
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.artifact_reference import ArtifactReference
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = apicurioregistryclient.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with apicurioregistryclient.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = artifacts_api.ArtifactsApi(api_client)
+    UNKNOWN_PARAMETER_NAME =  #  | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Returns a list with all the references for the artifact with the given hash
+        api_response = api_instance.references_by_content_hash(UNKNOWN_PARAMETER_NAME)
+        pprint(api_response)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling ArtifactsApi->references_by_content_hash: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UNKNOWN_PARAMETER_NAME** | ****|  |
+
+### Return type
+
+[**[ArtifactReference]**](ArtifactReference.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A list containing all the references for the artifact with the given content hash. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **references_by_content_id**
+> [ArtifactReference] references_by_content_id(UNKNOWN_PARAMETER_NAME)
+
+Returns a list with all the references for the artifact with the given content id.
+
+Returns a list containing all the artifact references using the artifact contentId.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
+
+### Example
+
+
+```python
+import time
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.artifact_reference import ArtifactReference
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = apicurioregistryclient.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with apicurioregistryclient.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = artifacts_api.ArtifactsApi(api_client)
+    UNKNOWN_PARAMETER_NAME =  #  | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Returns a list with all the references for the artifact with the given content id.
+        api_response = api_instance.references_by_content_id(UNKNOWN_PARAMETER_NAME)
+        pprint(api_response)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling ArtifactsApi->references_by_content_id: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UNKNOWN_PARAMETER_NAME** | ****|  |
+
+### Return type
+
+[**[ArtifactReference]**](ArtifactReference.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A list containing all the references for the artifact with the given content id. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **references_by_global_id**
+> [ArtifactReference] references_by_global_id(UNKNOWN_PARAMETER_NAME)
+
+Returns a list with all the references for the artifact with the given global id.
+
+Returns a list containing all the artifact references using the artifact global id.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
+
+### Example
+
+
+```python
+import time
+import apicurioregistryclient
+from apicurioregistryclient.api import artifacts_api
+from apicurioregistryclient.model.artifact_reference import ArtifactReference
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = apicurioregistryclient.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with apicurioregistryclient.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = artifacts_api.ArtifactsApi(api_client)
+    UNKNOWN_PARAMETER_NAME =  #  | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Returns a list with all the references for the artifact with the given global id.
+        api_response = api_instance.references_by_global_id(UNKNOWN_PARAMETER_NAME)
+        pprint(api_response)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling ArtifactsApi->references_by_global_id: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **UNKNOWN_PARAMETER_NAME** | ****|  |
+
+### Return type
+
+[**[ArtifactReference]**](ArtifactReference.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A list containing all the references for the artifact with the given global id. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **search_artifacts**
 > ArtifactSearchResults search_artifacts()
 
@@ -721,7 +860,6 @@ Returns a paginated list of all artifacts that match the provided filter criteri
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -738,19 +876,9 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     name = "name_example" # str | Filter by artifact name. (optional)
@@ -802,7 +930,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -828,7 +956,6 @@ Returns a paginated list of all artifacts with at least one version that matches
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -844,19 +971,9 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     body = open('/path/to/file', 'rb') # file_type | The content to search for.
@@ -904,7 +1021,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
@@ -926,17 +1043,17 @@ Name | Type | Description  | Notes
 
 Update artifact
 
-Updates an artifact by uploading new content.  The body of the request should be the raw content of the artifact.  This is typically in JSON format for *most* of the supported types, but may be in another format for a few (for example, `PROTOBUF`). The type of the content should be compatible with the artifact's type (it would be an error to update an `AVRO` artifact with new `OPENAPI` content, for example).  The update could fail for a number of reasons including:  * Provided content (request body) was empty (HTTP error `400`) * No artifact with the `artifactId` exists (HTTP error `404`) * The new content violates one of the rules configured for the artifact (HTTP error `409`) * A server error occurred (HTTP error `500`)  When successful, this creates a new version of the artifact, making it the most recent (and therefore official) version of the artifact.
+Updates an artifact by uploading new content.  The body of the request can be the raw content of the artifact or a JSON object containing both the raw content and a set of references to other artifacts..  This is typically in JSON format for *most* of the supported types, but may be in another format for a few (for example, `PROTOBUF`). The type of the content should be compatible with the artifact's type (it would be an error to update an `AVRO` artifact with new `OPENAPI` content, for example).  The update could fail for a number of reasons including:  * Provided content (request body) was empty (HTTP error `400`) * No artifact with the `artifactId` exists (HTTP error `404`) * The new content violates one of the rules configured for the artifact (HTTP error `409`) * A server error occurred (HTTP error `500`)  When successful, this creates a new version of the artifact, making it the most recent (and therefore official) version of the artifact.
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
 import apicurioregistryclient
 from apicurioregistryclient.api import artifacts_api
 from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.content_create_request import ContentCreateRequest
 from apicurioregistryclient.model.artifact_meta_data import ArtifactMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -945,19 +1062,9 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -1007,11 +1114,11 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/create.extended+json
  - **Accept**: application/json
 
 
@@ -1035,7 +1142,6 @@ Updates the state of the artifact.  For example, you can use this to mark the la
 
 ### Example
 
-* Basic Authentication (basicAuth):
 
 ```python
 import time
@@ -1050,19 +1156,9 @@ configuration = apicurioregistryclient.Configuration(
     host = "http://localhost"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: basicAuth
-configuration = apicurioregistryclient.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
-)
 
 # Enter a context with an instance of the API client
-with apicurioregistryclient.ApiClient(configuration) as api_client:
+with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
     group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
@@ -1094,7 +1190,7 @@ void (empty response body)
 
 ### Authorization
 
-[basicAuth](../README.md#basicAuth)
+No authorization required
 
 ### HTTP request headers
 

@@ -10,14 +10,17 @@
 # sys.setrecursionlimit(n)
 
 from apicurioregistryclient.model.artifact_meta_data import ArtifactMetaData
+from apicurioregistryclient.model.artifact_reference import ArtifactReference
 from apicurioregistryclient.model.artifact_search_results import ArtifactSearchResults
 from apicurioregistryclient.model.artifact_state import ArtifactState
 from apicurioregistryclient.model.artifact_type import ArtifactType
 from apicurioregistryclient.model.configuration_property import ConfigurationProperty
+from apicurioregistryclient.model.content_create_request import ContentCreateRequest
 from apicurioregistryclient.model.download_ref import DownloadRef
 from apicurioregistryclient.model.editable_meta_data import EditableMetaData
 from apicurioregistryclient.model.error import Error
 from apicurioregistryclient.model.if_exists import IfExists
+from apicurioregistryclient.model.limits import Limits
 from apicurioregistryclient.model.log_configuration import LogConfiguration
 from apicurioregistryclient.model.log_level import LogLevel
 from apicurioregistryclient.model.named_log_configuration import NamedLogConfiguration
