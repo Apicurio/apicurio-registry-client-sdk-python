@@ -26,7 +26,7 @@ jobs:
           ignore-file-override: .openapi-generator-ignore
           template: .github/templates
       - name: Clean up temp files
-        run: rm -r tmp
+        run: rm -fr tmp
       - uses: dorny/paths-filter@v2
         id: changes
         with:
@@ -41,6 +41,7 @@ jobs:
           delete-branch: true
           branch-suffix: short-commit-hash
           branch: generate-sdk
+          reviewers: Apicurio/developers
           title: "[generated] Update API client"
           commit-message: "chore: update API client"
           body: |
