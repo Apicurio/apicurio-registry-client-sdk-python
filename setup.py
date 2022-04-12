@@ -12,7 +12,7 @@
 from setuptools import setup, find_packages  # noqa: H301
 
 NAME = "apicurioregistryclient"
-VERSION = "0.4.0"
+VERSION = "0.5.0"
 # To install the library, run the following
 #
 # python setup.py install
