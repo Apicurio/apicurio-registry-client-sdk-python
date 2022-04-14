@@ -178,16 +178,16 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/json, */*
+ - **Accept**: */*, application/json
 
 
 ### HTTP response details
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | The content of one version of one artifact. |  -  |
 **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
 **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
-**200** | The content of one version of one artifact. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -259,9 +259,9 @@ No authorization required
 
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
+**200** | List of all the artifact references for this artifact. |  -  |
 **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
 **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
-**200** | List of all the artifact references for this artifact. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

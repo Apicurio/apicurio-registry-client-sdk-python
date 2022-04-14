@@ -337,8 +337,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of one version of one artifact. |  -  |
-**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -406,8 +406,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of one version of one artifact. |  -  |
-**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -475,8 +475,8 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The content of one version of one artifact. |  -  |
-**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -651,7 +651,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **references_by_content_hash**
-> [ArtifactReference] references_by_content_hash(UNKNOWN_PARAMETER_NAME)
+> [ArtifactReference] references_by_content_hash(content_hash)
 
 Returns a list with all the references for the artifact with the given hash
 
@@ -677,12 +677,12 @@ configuration = apicurioregistryclient.Configuration(
 with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
-    UNKNOWN_PARAMETER_NAME =  #  | 
+    content_hash = "contentHash_example" # str | SHA-256 content hash for a single artifact content.
 
     # example passing only required values which don't have defaults set
     try:
         # Returns a list with all the references for the artifact with the given hash
-        api_response = api_instance.references_by_content_hash(UNKNOWN_PARAMETER_NAME)
+        api_response = api_instance.references_by_content_hash(content_hash)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->references_by_content_hash: %s\n" % e)
@@ -693,7 +693,7 @@ with apicurioregistryclient.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | ****|  |
+ **content_hash** | **str**| SHA-256 content hash for a single artifact content. |
 
 ### Return type
 
@@ -718,7 +718,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **references_by_content_id**
-> [ArtifactReference] references_by_content_id(UNKNOWN_PARAMETER_NAME)
+> [ArtifactReference] references_by_content_id(content_id)
 
 Returns a list with all the references for the artifact with the given content id.
 
@@ -744,12 +744,12 @@ configuration = apicurioregistryclient.Configuration(
 with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
-    UNKNOWN_PARAMETER_NAME =  #  | 
+    content_id = 1 # int | Global identifier for a single artifact content.
 
     # example passing only required values which don't have defaults set
     try:
         # Returns a list with all the references for the artifact with the given content id.
-        api_response = api_instance.references_by_content_id(UNKNOWN_PARAMETER_NAME)
+        api_response = api_instance.references_by_content_id(content_id)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->references_by_content_id: %s\n" % e)
@@ -760,7 +760,7 @@ with apicurioregistryclient.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | ****|  |
+ **content_id** | **int**| Global identifier for a single artifact content. |
 
 ### Return type
 
@@ -785,7 +785,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **references_by_global_id**
-> [ArtifactReference] references_by_global_id(UNKNOWN_PARAMETER_NAME)
+> [ArtifactReference] references_by_global_id(global_id)
 
 Returns a list with all the references for the artifact with the given global id.
 
@@ -811,12 +811,12 @@ configuration = apicurioregistryclient.Configuration(
 with apicurioregistryclient.ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = artifacts_api.ArtifactsApi(api_client)
-    UNKNOWN_PARAMETER_NAME =  #  | 
+    global_id = 1 # int | Global identifier for an artifact version.
 
     # example passing only required values which don't have defaults set
     try:
         # Returns a list with all the references for the artifact with the given global id.
-        api_response = api_instance.references_by_global_id(UNKNOWN_PARAMETER_NAME)
+        api_response = api_instance.references_by_global_id(global_id)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->references_by_global_id: %s\n" % e)
@@ -827,7 +827,7 @@ with apicurioregistryclient.ApiClient() as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **UNKNOWN_PARAMETER_NAME** | ****|  |
+ **global_id** | **int**| Global identifier for an artifact version. |
 
 ### Return type
 
