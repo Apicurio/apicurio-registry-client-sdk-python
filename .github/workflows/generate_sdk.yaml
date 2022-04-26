@@ -16,6 +16,9 @@ jobs:
           curl https://raw.githubusercontent.com/Apicurio/apicurio-registry/master/${{ github.event.client_payload.openapi_file_path }} > tmp/input-schema.json
       - name: Preprocess input schema
         run: bash <(curl -s https://raw.githubusercontent.com/Apicurio/apicurio-registry-client-sdk-go/main/hack/scripts/preprocess-schema.sh)
+      - name: Delete old generated files
+        run: |
+          rm -rf apicurioregistryclient
       - uses: craicoverflow/openapi-generator-action@v1
         with:
           generator: python
