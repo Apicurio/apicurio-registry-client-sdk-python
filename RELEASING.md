@@ -6,8 +6,12 @@ Here are the steps you need to take in order to create a new release of the `api
 
 1. `git checkout -b release-1.0.0`.
 2. Set the value of `VERSION` in [setup.py](./setup.py) to "1.0.0".
-3. `git add setup.py && git commit -m "chore: release 1.0.0"`.
-4. Create a pull request and merge it to `main`.
+3. `git add setup.py`
+4. `git commit -m "chore: release 1.0.0"`
+5. `git push <remote> release-1.0.0`
+6. Create a pull request and merge it to `main`.
+7. `git checkout main`
+8. `git pull <remote> main`
 
 ## Create release
 
