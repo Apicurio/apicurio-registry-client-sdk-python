@@ -6,7 +6,7 @@
 # raise a `RecursionError`.
 # In order to avoid this, import only the API that you directly need like:
 #
-#   from .api.admin_api import AdminApi
+#   from apicurioregistryclient.api.admin_api import AdminApi
 #
 # or import this package, but before doing it, use:
 #
