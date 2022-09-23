@@ -6,15 +6,15 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_artifact**](ArtifactsApi.md#create_artifact) | **POST** /groups/{groupId}/artifacts | Create artifact
 [**delete_artifact**](ArtifactsApi.md#delete_artifact) | **DELETE** /groups/{groupId}/artifacts/{artifactId} | Delete artifact
-[**delete_artifacts_in_group**](ArtifactsApi.md#delete_artifacts_in_group) | **DELETE** /groups/{groupId}/artifacts | Deletes all artifacts in a group
+[**delete_artifacts_in_group**](ArtifactsApi.md#delete_artifacts_in_group) | **DELETE** /groups/{groupId}/artifacts | Delete artifacts in group
 [**get_content_by_global_id**](ArtifactsApi.md#get_content_by_global_id) | **GET** /ids/globalIds/{globalId} | Get artifact by global ID
 [**get_content_by_hash**](ArtifactsApi.md#get_content_by_hash) | **GET** /ids/contentHashes/{contentHash}/ | Get artifact content by SHA-256 hash
 [**get_content_by_id**](ArtifactsApi.md#get_content_by_id) | **GET** /ids/contentIds/{contentId}/ | Get artifact content by ID
 [**get_latest_artifact**](ArtifactsApi.md#get_latest_artifact) | **GET** /groups/{groupId}/artifacts/{artifactId} | Get latest artifact
 [**list_artifacts_in_group**](ArtifactsApi.md#list_artifacts_in_group) | **GET** /groups/{groupId}/artifacts | List artifacts in group
-[**references_by_content_hash**](ArtifactsApi.md#references_by_content_hash) | **GET** /ids/contentHashes/{contentHash}/references | Returns a list with all the references for the artifact with the given hash
-[**references_by_content_id**](ArtifactsApi.md#references_by_content_id) | **GET** /ids/contentIds/{contentId}/references | Returns a list with all the references for the artifact with the given content id.
-[**references_by_global_id**](ArtifactsApi.md#references_by_global_id) | **GET** /ids/globalIds/{globalId}/references | Returns a list with all the references for the artifact with the given global id.
+[**references_by_content_hash**](ArtifactsApi.md#references_by_content_hash) | **GET** /ids/contentHashes/{contentHash}/references | List artifact references by hash
+[**references_by_content_id**](ArtifactsApi.md#references_by_content_id) | **GET** /ids/contentIds/{contentId}/references | List artifact references by content ID
+[**references_by_global_id**](ArtifactsApi.md#references_by_global_id) | **GET** /ids/globalIds/{globalId}/references | List artifact references by global ID
 [**search_artifacts**](ArtifactsApi.md#search_artifacts) | **GET** /search/artifacts | Search for artifacts
 [**search_artifacts_by_content**](ArtifactsApi.md#search_artifacts_by_content) | **POST** /search/artifacts | Search for artifacts by content
 [**update_artifact**](ArtifactsApi.md#update_artifact) | **PUT** /groups/{groupId}/artifacts/{artifactId} | Update artifact
@@ -64,6 +64,8 @@ with apicurioregistryclient.ApiClient() as api_client:
     x_registry_description_encoded = "QXJ0aWZhY3QgZGVzY3JpcHRpb24K" # str | Specifies the description of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content. (optional)
     x_registry_name = "Artifact name" # str | Specifies the name of artifact being added. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content. (optional)
     x_registry_name_encoded = "QXJ0aWZhY3QgbmFtZQo=" # str | Specifies the name of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. (optional)
+    x_registry_content_hash = "X-Registry-Content-Hash_example" # str | Specifies the (optional) hash of the artifact to be verified. (optional)
+    x_registry_hash_algorithm = "SHA256" # str | The algorithm to use when checking the content validity. (available: SHA256, MD5; default: SHA256) (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -77,7 +79,7 @@ with apicurioregistryclient.ApiClient() as api_client:
     # and optional values
     try:
         # Create artifact
-        api_response = api_instance.create_artifact(group_id, body, x_registry_artifact_type=x_registry_artifact_type, x_registry_artifact_id=x_registry_artifact_id, x_registry_version=x_registry_version, if_exists=if_exists, canonical=canonical, x_registry_description=x_registry_description, x_registry_description_encoded=x_registry_description_encoded, x_registry_name=x_registry_name, x_registry_name_encoded=x_registry_name_encoded)
+        api_response = api_instance.create_artifact(group_id, body, x_registry_artifact_type=x_registry_artifact_type, x_registry_artifact_id=x_registry_artifact_id, x_registry_version=x_registry_version, if_exists=if_exists, canonical=canonical, x_registry_description=x_registry_description, x_registry_description_encoded=x_registry_description_encoded, x_registry_name=x_registry_name, x_registry_name_encoded=x_registry_name_encoded, x_registry_content_hash=x_registry_content_hash, x_registry_hash_algorithm=x_registry_hash_algorithm)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->create_artifact: %s\n" % e)
@@ -99,6 +101,8 @@ Name | Type | Description  | Notes
  **x_registry_description_encoded** | **str**| Specifies the description of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the description from the artifact content. | [optional]
  **x_registry_name** | **str**| Specifies the name of artifact being added. Name must be ASCII-only string. If this is not provided, the server will extract the name from the artifact content. | [optional]
  **x_registry_name_encoded** | **str**| Specifies the name of artifact being added. Value of this must be Base64 encoded string. If this is not provided, the server will extract the name from the artifact content. | [optional]
+ **x_registry_content_hash** | **str**| Specifies the (optional) hash of the artifact to be verified. | [optional]
+ **x_registry_hash_algorithm** | **str**| The algorithm to use when checking the content validity. (available: SHA256, MD5; default: SHA256) | [optional]
 
 ### Return type
 
@@ -198,7 +202,7 @@ No authorization required
 # **delete_artifacts_in_group**
 > delete_artifacts_in_group(group_id)
 
-Deletes all artifacts in a group
+Delete artifacts in group
 
 Deletes all of the artifacts that exist in a given group.
 
@@ -226,7 +230,7 @@ with apicurioregistryclient.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Deletes all artifacts in a group
+        # Delete artifacts in group
         api_instance.delete_artifacts_in_group(group_id)
     except apicurioregistryclient.ApiException as e:
         print("Exception when calling ArtifactsApi->delete_artifacts_in_group: %s\n" % e)
@@ -653,7 +657,7 @@ No authorization required
 # **references_by_content_hash**
 > [ArtifactReference] references_by_content_hash(content_hash)
 
-Returns a list with all the references for the artifact with the given hash
+List artifact references by hash
 
 Returns a list containing all the artifact references using the artifact content hash.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`) 
 
@@ -681,7 +685,7 @@ with apicurioregistryclient.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Returns a list with all the references for the artifact with the given hash
+        # List artifact references by hash
         api_response = api_instance.references_by_content_hash(content_hash)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
@@ -720,9 +724,9 @@ No authorization required
 # **references_by_content_id**
 > [ArtifactReference] references_by_content_id(content_id)
 
-Returns a list with all the references for the artifact with the given content id.
+List artifact references by content ID
 
-Returns a list containing all the artifact references using the artifact contentId.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
+Returns a list containing all the artifact references using the artifact content ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
 
 ### Example
 
@@ -748,7 +752,7 @@ with apicurioregistryclient.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Returns a list with all the references for the artifact with the given content id.
+        # List artifact references by content ID
         api_response = api_instance.references_by_content_id(content_id)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
@@ -787,9 +791,9 @@ No authorization required
 # **references_by_global_id**
 > [ArtifactReference] references_by_global_id(global_id)
 
-Returns a list with all the references for the artifact with the given global id.
+List artifact references by global ID
 
-Returns a list containing all the artifact references using the artifact global id.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
+Returns a list containing all the artifact references using the artifact global ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)
 
 ### Example
 
@@ -815,7 +819,7 @@ with apicurioregistryclient.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Returns a list with all the references for the artifact with the given global id.
+        # List artifact references by global ID
         api_response = api_instance.references_by_global_id(global_id)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:

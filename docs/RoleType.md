@@ -1,6 +1,7 @@
 # RoleType
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

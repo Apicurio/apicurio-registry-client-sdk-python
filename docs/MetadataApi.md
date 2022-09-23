@@ -6,9 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**delete_artifact_version_meta_data**](MetadataApi.md#delete_artifact_version_meta_data) | **DELETE** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta | Delete artifact version metadata
 [**get_artifact_meta_data**](MetadataApi.md#get_artifact_meta_data) | **GET** /groups/{groupId}/artifacts/{artifactId}/meta | Get artifact metadata
+[**get_artifact_owner**](MetadataApi.md#get_artifact_owner) | **GET** /groups/{groupId}/artifacts/{artifactId}/owner | Get artifact owner
 [**get_artifact_version_meta_data**](MetadataApi.md#get_artifact_version_meta_data) | **GET** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta | Get artifact version metadata
 [**get_artifact_version_meta_data_by_content**](MetadataApi.md#get_artifact_version_meta_data_by_content) | **POST** /groups/{groupId}/artifacts/{artifactId}/meta | Get artifact version metadata by content
 [**update_artifact_meta_data**](MetadataApi.md#update_artifact_meta_data) | **PUT** /groups/{groupId}/artifacts/{artifactId}/meta | Update artifact metadata
+[**update_artifact_owner**](MetadataApi.md#update_artifact_owner) | **PUT** /groups/{groupId}/artifacts/{artifactId}/owner | Update artifact owner
 [**update_artifact_version_meta_data**](MetadataApi.md#update_artifact_version_meta_data) | **PUT** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta | Update artifact version metadata
 
 
@@ -151,6 +153,78 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | The artifact&#39;s metadata. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_artifact_owner**
+> ArtifactOwner get_artifact_owner(group_id, artifact_id)
+
+Get artifact owner
+
+Gets the owner of an artifact in the registry.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`)
+
+### Example
+
+
+```python
+import time
+import apicurioregistryclient
+from apicurioregistryclient.api import metadata_api
+from apicurioregistryclient.model.artifact_owner import ArtifactOwner
+from apicurioregistryclient.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = apicurioregistryclient.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with apicurioregistryclient.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = metadata_api.MetadataApi(api_client)
+    group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+    artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Get artifact owner
+        api_response = api_instance.get_artifact_owner(group_id, artifact_id)
+        pprint(api_response)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling MetadataApi->get_artifact_owner: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
+ **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
+
+### Return type
+
+[**ArtifactOwner**](ArtifactOwner.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The artifact&#39;s owner. |  -  |
 **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
 **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 
@@ -392,6 +466,81 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | The artifact&#39;s metadata was updated. |  -  |
+**404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
+**500** | Common response for all operations that can fail with an unexpected server error. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_artifact_owner**
+> update_artifact_owner(group_id, artifact_id, artifact_owner)
+
+Update artifact owner
+
+Changes the ownership of an artifact.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`)
+
+### Example
+
+
+```python
+import time
+import apicurioregistryclient
+from apicurioregistryclient.api import metadata_api
+from apicurioregistryclient.model.artifact_owner import ArtifactOwner
+from apicurioregistryclient.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = apicurioregistryclient.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with apicurioregistryclient.ApiClient() as api_client:
+    # Create an instance of the API class
+    api_instance = metadata_api.MetadataApi(api_client)
+    group_id = "my-group" # str | The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts.
+    artifact_id = "example-artifact" # str | The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier.
+    artifact_owner = ArtifactOwner(
+        owner="owner_example",
+    ) # ArtifactOwner | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update artifact owner
+        api_instance.update_artifact_owner(group_id, artifact_id, artifact_owner)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling MetadataApi->update_artifact_owner: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **group_id** | **str**| The artifact group ID.  Must be a string provided by the client, representing the name of the grouping of artifacts. |
+ **artifact_id** | **str**| The artifact ID.  Can be a string (client-provided) or UUID (server-generated), representing the unique artifact identifier. |
+ **artifact_owner** | [**ArtifactOwner**](ArtifactOwner.md)|  |
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | The owner was successfully changed. |  -  |
 **404** | Common response for all operations that can return a &#x60;404&#x60; error. |  -  |
 **500** | Common response for all operations that can fail with an unexpected server error. |  -  |
 
