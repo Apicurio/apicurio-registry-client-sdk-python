@@ -10,6 +10,7 @@
 # sys.setrecursionlimit(n)
 
 from apicurioregistryclient.model.artifact_meta_data import ArtifactMetaData
+from apicurioregistryclient.model.artifact_owner import ArtifactOwner
 from apicurioregistryclient.model.artifact_reference import ArtifactReference
 from apicurioregistryclient.model.artifact_search_results import ArtifactSearchResults
 from apicurioregistryclient.model.artifact_state import ArtifactState

@@ -13,6 +13,7 @@ apicurioregistryclient/configuration.py
 apicurioregistryclient/exceptions.py
 apicurioregistryclient/model/__init__.py
 apicurioregistryclient/model/artifact_meta_data.py
+apicurioregistryclient/model/artifact_owner.py
 apicurioregistryclient/model/artifact_reference.py
 apicurioregistryclient/model/artifact_search_results.py
 apicurioregistryclient/model/artifact_state.py
@@ -52,6 +53,7 @@ apicurioregistryclient/models/__init__.py
 apicurioregistryclient/rest.py
 docs/AdminApi.md
 docs/ArtifactMetaData.md
+docs/ArtifactOwner.md
 docs/ArtifactReference.md
 docs/ArtifactRulesApi.md
 docs/ArtifactSearchResults.md

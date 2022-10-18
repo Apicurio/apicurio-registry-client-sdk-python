@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**delete_global_rule**](AdminApi.md#delete_global_rule) | **DELETE** /admin/rules/{rule} | Delete global rule
 [**delete_role_mapping**](AdminApi.md#delete_role_mapping) | **DELETE** /admin/roleMappings/{principalId} | Delete a role mapping
 [**export_data**](AdminApi.md#export_data) | **GET** /admin/export | Export registry data
-[**get_config_property**](AdminApi.md#get_config_property) | **GET** /admin/config/properties/{propertyName} | Get the value of a configuration property
+[**get_config_property**](AdminApi.md#get_config_property) | **GET** /admin/config/properties/{propertyName} | Get configuration property value
 [**get_global_rule_config**](AdminApi.md#get_global_rule_config) | **GET** /admin/rules/{rule} | Get global rule configuration
 [**get_log_configuration**](AdminApi.md#get_log_configuration) | **GET** /admin/loggers/{logger} | Get a single logger configuration
 [**get_role_mapping**](AdminApi.md#get_role_mapping) | **GET** /admin/roleMappings/{principalId} | Return a single role mapping
@@ -444,7 +444,7 @@ No authorization required
 # **get_config_property**
 > ConfigurationProperty get_config_property(property_name)
 
-Get the value of a configuration property
+Get configuration property value
 
 Returns the value of a single configuration property.  This operation may fail for one of the following reasons:  * Property not found or not configured (HTTP error `404`) * A server error occurred (HTTP error `500`) 
 
@@ -473,7 +473,7 @@ with apicurioregistryclient.ApiClient() as api_client:
 
     # example passing only required values which don't have defaults set
     try:
-        # Get the value of a configuration property
+        # Get configuration property value
         api_response = api_instance.get_config_property(property_name)
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
@@ -656,7 +656,7 @@ No authorization required
 
 Return a single role mapping
 
-Gets the details of a single role mapping (by principalId).  This operation can fail for the following reasons:  * No role mapping for the principalId exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+Gets the details of a single role mapping (by `principalId`).  This operation can fail for the following reasons:  * No role mapping for the `principalId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
 
 ### Example
 
