@@ -1,5 +1,5 @@
 rm -Rf ./openapi/openapi.json
-wget https://raw.githubusercontent.com/Apicurio/apicurio-registry/master/app/src/main/resources-unfiltered/META-INF/resources/api-specifications/registry/v2/openapi.json -P ./openapi
+wget https://raw.githubusercontent.com/Apicurio/apicurio-registry/main/app/src/main/resources-unfiltered/META-INF/resources/api-specifications/registry/v2/openapi.json -P ./openapi
 rm -Rf ./apicurioregistryclient
 
 echo "applying diff to enable basic auth - might need some manual changes"

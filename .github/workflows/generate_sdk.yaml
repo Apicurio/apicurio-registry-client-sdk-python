@@ -13,7 +13,7 @@ jobs:
       - name: Download OpenAPI document
         run: | 
           mkdir -p tmp
-          curl https://raw.githubusercontent.com/Apicurio/apicurio-registry/master/${{ github.event.client_payload.openapi_file_path }} > tmp/input-schema.json
+          curl https://raw.githubusercontent.com/Apicurio/apicurio-registry/main/${{ github.event.client_payload.openapi_file_path }} > tmp/input-schema.json
       - name: Preprocess input schema
         run: bash <(curl -s https://raw.githubusercontent.com/Apicurio/apicurio-registry-client-sdk-go/main/hack/scripts/preprocess-schema.sh)
       - name: Delete old generated files
