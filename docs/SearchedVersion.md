@@ -5,7 +5,7 @@ Models a single artifact from the result set returned when searching for artifac
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**created_on** | **str** |  | 
+**created_on** | **datetime** |  | 
 **created_by** | **str** |  | 
 **type** | [**ArtifactType**](ArtifactType.md) |  | 
 **state** | [**ArtifactState**](ArtifactState.md) |  | 

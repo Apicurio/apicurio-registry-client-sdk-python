@@ -47,7 +47,9 @@ class AdminApi(object):
         self.create_global_rule_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules',
                 'operation_id': 'create_global_rule',
                 'http_method': 'POST',
@@ -97,7 +99,9 @@ class AdminApi(object):
         self.create_role_mapping_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/roleMappings',
                 'operation_id': 'create_role_mapping',
                 'http_method': 'POST',
@@ -147,7 +151,9 @@ class AdminApi(object):
         self.delete_all_global_rules_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules',
                 'operation_id': 'delete_all_global_rules',
                 'http_method': 'DELETE',
@@ -189,7 +195,9 @@ class AdminApi(object):
         self.delete_global_rule_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules/{rule}',
                 'operation_id': 'delete_global_rule',
                 'http_method': 'DELETE',
@@ -238,7 +246,9 @@ class AdminApi(object):
         self.delete_role_mapping_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/roleMappings/{principalId}',
                 'operation_id': 'delete_role_mapping',
                 'http_method': 'DELETE',
@@ -287,7 +297,9 @@ class AdminApi(object):
         self.export_data_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/export',
                 'operation_id': 'export_data',
                 'http_method': 'GET',
@@ -335,7 +347,9 @@ class AdminApi(object):
         self.get_config_property_endpoint = _Endpoint(
             settings={
                 'response_type': (ConfigurationProperty,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/config/properties/{propertyName}',
                 'operation_id': 'get_config_property',
                 'http_method': 'GET',
@@ -384,7 +398,9 @@ class AdminApi(object):
         self.get_global_rule_config_endpoint = _Endpoint(
             settings={
                 'response_type': (Rule,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules/{rule}',
                 'operation_id': 'get_global_rule_config',
                 'http_method': 'GET',
@@ -433,7 +449,9 @@ class AdminApi(object):
         self.get_log_configuration_endpoint = _Endpoint(
             settings={
                 'response_type': (NamedLogConfiguration,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/loggers/{logger}',
                 'operation_id': 'get_log_configuration',
                 'http_method': 'GET',
@@ -482,7 +500,9 @@ class AdminApi(object):
         self.get_role_mapping_endpoint = _Endpoint(
             settings={
                 'response_type': (RoleMapping,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/roleMappings/{principalId}',
                 'operation_id': 'get_role_mapping',
                 'http_method': 'GET',
@@ -531,7 +551,9 @@ class AdminApi(object):
         self.import_data_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/import',
                 'operation_id': 'import_data',
                 'http_method': 'POST',
@@ -591,7 +613,9 @@ class AdminApi(object):
         self.list_config_properties_endpoint = _Endpoint(
             settings={
                 'response_type': ([ConfigurationProperty],),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/config/properties',
                 'operation_id': 'list_config_properties',
                 'http_method': 'GET',
@@ -633,7 +657,9 @@ class AdminApi(object):
         self.list_global_rules_endpoint = _Endpoint(
             settings={
                 'response_type': ([RuleType],),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules',
                 'operation_id': 'list_global_rules',
                 'http_method': 'GET',
@@ -675,7 +701,9 @@ class AdminApi(object):
         self.list_log_configurations_endpoint = _Endpoint(
             settings={
                 'response_type': ([NamedLogConfiguration],),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/loggers',
                 'operation_id': 'list_log_configurations',
                 'http_method': 'GET',
@@ -717,7 +745,9 @@ class AdminApi(object):
         self.list_role_mappings_endpoint = _Endpoint(
             settings={
                 'response_type': ([RoleMapping],),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/roleMappings',
                 'operation_id': 'list_role_mappings',
                 'http_method': 'GET',
@@ -759,7 +789,9 @@ class AdminApi(object):
         self.remove_log_configuration_endpoint = _Endpoint(
             settings={
                 'response_type': (NamedLogConfiguration,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/loggers/{logger}',
                 'operation_id': 'remove_log_configuration',
                 'http_method': 'DELETE',
@@ -808,7 +840,9 @@ class AdminApi(object):
         self.reset_config_property_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/config/properties/{propertyName}',
                 'operation_id': 'reset_config_property',
                 'http_method': 'DELETE',
@@ -857,7 +891,9 @@ class AdminApi(object):
         self.set_log_configuration_endpoint = _Endpoint(
             settings={
                 'response_type': (NamedLogConfiguration,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/loggers/{logger}',
                 'operation_id': 'set_log_configuration',
                 'http_method': 'PUT',
@@ -913,7 +949,9 @@ class AdminApi(object):
         self.update_config_property_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/config/properties/{propertyName}',
                 'operation_id': 'update_config_property',
                 'http_method': 'PUT',
@@ -969,7 +1007,9 @@ class AdminApi(object):
         self.update_global_rule_config_endpoint = _Endpoint(
             settings={
                 'response_type': (Rule,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/rules/{rule}',
                 'operation_id': 'update_global_rule_config',
                 'http_method': 'PUT',
@@ -1025,7 +1065,9 @@ class AdminApi(object):
         self.update_role_mapping_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/admin/roleMappings/{principalId}',
                 'operation_id': 'update_role_mapping',
                 'http_method': 'PUT',

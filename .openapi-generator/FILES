@@ -3,7 +3,9 @@ apicurioregistryclient/api/__init__.py
 apicurioregistryclient/api/admin_api.py
 apicurioregistryclient/api/artifact_rules_api.py
 apicurioregistryclient/api/artifacts_api.py
+apicurioregistryclient/api/global_rules_api.py
 apicurioregistryclient/api/metadata_api.py
+apicurioregistryclient/api/search_api.py
 apicurioregistryclient/api/system_api.py
 apicurioregistryclient/api/users_api.py
 apicurioregistryclient/api/versions_api.py
@@ -65,6 +67,7 @@ docs/ContentCreateRequest.md
 docs/DownloadRef.md
 docs/EditableMetaData.md
 docs/Error.md
+docs/GlobalRulesApi.md
 docs/IfExists.md
 docs/Limits.md
 docs/LogConfiguration.md
@@ -80,6 +83,7 @@ docs/RuleType.md
 docs/RuleViolationCause.md
 docs/RuleViolationError.md
 docs/RuleViolationErrorAllOf.md
+docs/SearchApi.md
 docs/SearchedArtifact.md
 docs/SearchedVersion.md
 docs/SortBy.md

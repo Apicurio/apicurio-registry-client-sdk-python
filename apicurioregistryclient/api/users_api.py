@@ -40,7 +40,9 @@ class UsersApi(object):
         self.get_current_user_info_endpoint = _Endpoint(
             settings={
                 'response_type': (UserInfo,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/users/me',
                 'operation_id': 'get_current_user_info',
                 'http_method': 'GET',
