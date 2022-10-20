@@ -49,7 +49,9 @@ class ArtifactsApi(object):
         self.create_artifact_endpoint = _Endpoint(
             settings={
                 'response_type': (ArtifactMetaData,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts',
                 'operation_id': 'create_artifact',
                 'http_method': 'POST',
@@ -167,7 +169,9 @@ class ArtifactsApi(object):
         self.delete_artifact_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}',
                 'operation_id': 'delete_artifact',
                 'http_method': 'DELETE',
@@ -222,7 +226,9 @@ class ArtifactsApi(object):
         self.delete_artifacts_in_group_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts',
                 'operation_id': 'delete_artifacts_in_group',
                 'http_method': 'DELETE',
@@ -271,7 +277,9 @@ class ArtifactsApi(object):
         self.get_content_by_global_id_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/ids/globalIds/{globalId}',
                 'operation_id': 'get_content_by_global_id',
                 'http_method': 'GET',
@@ -326,7 +334,9 @@ class ArtifactsApi(object):
         self.get_content_by_hash_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/ids/contentHashes/{contentHash}/',
                 'operation_id': 'get_content_by_hash',
                 'http_method': 'GET',
@@ -376,7 +386,9 @@ class ArtifactsApi(object):
         self.get_content_by_id_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/ids/contentIds/{contentId}/',
                 'operation_id': 'get_content_by_id',
                 'http_method': 'GET',
@@ -426,7 +438,9 @@ class ArtifactsApi(object):
         self.get_latest_artifact_endpoint = _Endpoint(
             settings={
                 'response_type': (file_type,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}',
                 'operation_id': 'get_latest_artifact',
                 'http_method': 'GET',
@@ -487,7 +501,9 @@ class ArtifactsApi(object):
         self.list_artifacts_in_group_endpoint = _Endpoint(
             settings={
                 'response_type': (ArtifactSearchResults,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts',
                 'operation_id': 'list_artifacts_in_group',
                 'http_method': 'GET',
@@ -556,7 +572,9 @@ class ArtifactsApi(object):
         self.references_by_content_hash_endpoint = _Endpoint(
             settings={
                 'response_type': ([ArtifactReference],),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/ids/contentHashes/{contentHash}/references',
                 'operation_id': 'references_by_content_hash',
                 'http_method': 'GET',
@@ -605,7 +623,9 @@ class ArtifactsApi(object):
         self.references_by_content_id_endpoint = _Endpoint(
             settings={
                 'response_type': ([ArtifactReference],),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/ids/contentIds/{contentId}/references',
                 'operation_id': 'references_by_content_id',
                 'http_method': 'GET',
@@ -654,7 +674,9 @@ class ArtifactsApi(object):
         self.references_by_global_id_endpoint = _Endpoint(
             settings={
                 'response_type': ([ArtifactReference],),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/ids/globalIds/{globalId}/references',
                 'operation_id': 'references_by_global_id',
                 'http_method': 'GET',
@@ -703,7 +725,9 @@ class ArtifactsApi(object):
         self.search_artifacts_endpoint = _Endpoint(
             settings={
                 'response_type': (ArtifactSearchResults,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/search/artifacts',
                 'operation_id': 'search_artifacts',
                 'http_method': 'GET',
@@ -802,7 +826,9 @@ class ArtifactsApi(object):
         self.search_artifacts_by_content_endpoint = _Endpoint(
             settings={
                 'response_type': (ArtifactSearchResults,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/search/artifacts',
                 'operation_id': 'search_artifacts_by_content',
                 'http_method': 'POST',
@@ -892,7 +918,9 @@ class ArtifactsApi(object):
         self.update_artifact_endpoint = _Endpoint(
             settings={
                 'response_type': (ArtifactMetaData,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}',
                 'operation_id': 'update_artifact',
                 'http_method': 'PUT',
@@ -980,7 +1008,9 @@ class ArtifactsApi(object):
         self.update_artifact_state_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/state',
                 'operation_id': 'update_artifact_state',
                 'http_method': 'PUT',
@@ -1740,7 +1770,7 @@ class ArtifactsApi(object):
     ):
         """List artifact references by hash  # noqa: E501
 
-        Returns a list containing all the artifact references using the artifact content hash.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)   # noqa: E501
+        Returns a list containing all the artifact references for the artifact identified by the content hash.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)   # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1823,7 +1853,7 @@ class ArtifactsApi(object):
     ):
         """List artifact references by content ID  # noqa: E501
 
-        Returns a list containing all the artifact references using the artifact content ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)  # noqa: E501
+        Returns a list containing all the artifact references identified by content id.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1906,7 +1936,7 @@ class ArtifactsApi(object):
     ):
         """List artifact references by global ID  # noqa: E501
 
-        Returns a list containing all the artifact references using the artifact global ID.  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)  # noqa: E501
+        Returns a list containing all the artifact references for the artifact identified by global id..  This operation may fail for one of the following reasons:  * A server error occurred (HTTP error `500`)  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 

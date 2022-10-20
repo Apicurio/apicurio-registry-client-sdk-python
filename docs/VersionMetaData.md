@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **version** | **str** |  | 
 **created_by** | **str** |  | 
-**created_on** | **str** |  | 
+**created_on** | **datetime** |  | 
 **type** | [**ArtifactType**](ArtifactType.md) |  | 
 **global_id** | **int** |  | 
 **id** | **str** | The ID of a single artifact. | 

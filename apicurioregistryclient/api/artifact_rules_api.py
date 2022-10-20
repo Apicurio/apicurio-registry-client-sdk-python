@@ -42,7 +42,9 @@ class ArtifactRulesApi(object):
         self.create_artifact_rule_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/rules',
                 'operation_id': 'create_artifact_rule',
                 'http_method': 'POST',
@@ -104,7 +106,9 @@ class ArtifactRulesApi(object):
         self.delete_artifact_rule_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/rules/{rule}',
                 'operation_id': 'delete_artifact_rule',
                 'http_method': 'DELETE',
@@ -171,7 +175,9 @@ class ArtifactRulesApi(object):
         self.delete_artifact_rules_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/rules',
                 'operation_id': 'delete_artifact_rules',
                 'http_method': 'DELETE',
@@ -226,7 +232,9 @@ class ArtifactRulesApi(object):
         self.get_artifact_rule_config_endpoint = _Endpoint(
             settings={
                 'response_type': (Rule,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/rules/{rule}',
                 'operation_id': 'get_artifact_rule_config',
                 'http_method': 'GET',
@@ -293,7 +301,9 @@ class ArtifactRulesApi(object):
         self.list_artifact_rules_endpoint = _Endpoint(
             settings={
                 'response_type': ([RuleType],),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/rules',
                 'operation_id': 'list_artifact_rules',
                 'http_method': 'GET',
@@ -348,7 +358,9 @@ class ArtifactRulesApi(object):
         self.test_update_artifact_endpoint = _Endpoint(
             settings={
                 'response_type': None,
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/test',
                 'operation_id': 'test_update_artifact',
                 'http_method': 'PUT',
@@ -409,7 +421,9 @@ class ArtifactRulesApi(object):
         self.update_artifact_rule_config_endpoint = _Endpoint(
             settings={
                 'response_type': (Rule,),
-                'auth': [],
+                'auth': [
+                    'basicAuth'
+                ],
                 'endpoint_path': '/groups/{groupId}/artifacts/{artifactId}/rules/{rule}',
                 'operation_id': 'update_artifact_rule_config',
                 'http_method': 'PUT',
