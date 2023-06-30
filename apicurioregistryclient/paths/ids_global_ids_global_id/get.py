@@ -26,11 +26,12 @@ import frozendict  # noqa: F401
 from apicurioregistryclient import schemas  # noqa: F401
 
 from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.handle_references_type import HandleReferencesType
 
 from . import path
 
 # Query params
-DereferenceSchema = schemas.BoolSchema
+ReferencesSchema = HandleReferencesType
 RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
@@ -39,7 +40,7 @@ RequestRequiredQueryParams = typing_extensions.TypedDict(
 RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
-        'dereference': typing.Union[DereferenceSchema, bool, ],
+        'references': typing.Union[ReferencesSchema, ],
     },
     total=False
 )
@@ -49,10 +50,10 @@ class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams)
     pass
 
 
-request_query_dereference = api_client.QueryParameter(
-    name="dereference",
+request_query_references = api_client.QueryParameter(
+    name="references",
     style=api_client.ParameterStyle.FORM,
-    schema=DereferenceSchema,
+    schema=ReferencesSchema,
     explode=True,
 )
 # Path params
@@ -222,7 +223,7 @@ class BaseApi(api_client.Api):
 
         prefix_separator_iterator = None
         for parameter in (
-            request_query_dereference,
+            request_query_references,
         ):
             parameter_data = query_params.get(parameter.name, schemas.unset)
             if parameter_data is schemas.unset:

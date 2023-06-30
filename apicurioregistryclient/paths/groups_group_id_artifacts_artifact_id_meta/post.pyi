@@ -25,6 +25,7 @@ import frozendict  # noqa: F401
 
 from apicurioregistryclient import schemas  # noqa: F401
 
+from apicurioregistryclient.model.artifact_content import ArtifactContent
 from apicurioregistryclient.model.error import Error
 from apicurioregistryclient.model.version_meta_data import VersionMetaData
 
@@ -90,12 +91,18 @@ request_path_artifact_id = api_client.PathParameter(
 )
 # body param
 SchemaForRequestBody = schemas.BinarySchema
+SchemaForRequestBodyApplicationGetExtendedjson = ArtifactContent
+SchemaForRequestBodyApplicationVndGetExtendedjson = ArtifactContent
 
 
 request_body_body = api_client.RequestBody(
     content={
         '*/*': api_client.MediaType(
             schema=SchemaForRequestBody),
+        'application/get.extended+json': api_client.MediaType(
+            schema=SchemaForRequestBodyApplicationGetExtendedjson),
+        'application/vnd.get.extended+json': api_client.MediaType(
+            schema=SchemaForRequestBodyApplicationVndGetExtendedjson),
     },
     required=True,
 )
@@ -180,7 +187,37 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_artifact_version_meta_data_by_content_oapg(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBodyApplicationGetExtendedjson,],
+        content_type: typing_extensions.Literal["application/get.extended+json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+    @typing.overload
+    def _get_artifact_version_meta_data_by_content_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationVndGetExtendedjson,],
+        content_type: typing_extensions.Literal["application/vnd.get.extended+json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+    @typing.overload
+    def _get_artifact_version_meta_data_by_content_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         content_type: str = ...,
         query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -196,7 +233,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_artifact_version_meta_data_by_content_oapg(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParams = frozendict.frozendict(),
@@ -209,7 +246,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_artifact_version_meta_data_by_content_oapg(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         content_type: str = ...,
         query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -224,7 +261,7 @@ class BaseApi(api_client.Api):
 
     def _get_artifact_version_meta_data_by_content_oapg(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         content_type: str = '*/*',
         query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -337,7 +374,37 @@ class GetArtifactVersionMetaDataByContent(BaseApi):
     @typing.overload
     def get_artifact_version_meta_data_by_content(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBodyApplicationGetExtendedjson,],
+        content_type: typing_extensions.Literal["application/get.extended+json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+    @typing.overload
+    def get_artifact_version_meta_data_by_content(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationVndGetExtendedjson,],
+        content_type: typing_extensions.Literal["application/vnd.get.extended+json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+    @typing.overload
+    def get_artifact_version_meta_data_by_content(
+        self,
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         content_type: str = ...,
         query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -353,7 +420,7 @@ class GetArtifactVersionMetaDataByContent(BaseApi):
     @typing.overload
     def get_artifact_version_meta_data_by_content(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParams = frozendict.frozendict(),
@@ -366,7 +433,7 @@ class GetArtifactVersionMetaDataByContent(BaseApi):
     @typing.overload
     def get_artifact_version_meta_data_by_content(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         content_type: str = ...,
         query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -381,7 +448,7 @@ class GetArtifactVersionMetaDataByContent(BaseApi):
 
     def get_artifact_version_meta_data_by_content(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         content_type: str = '*/*',
         query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -423,7 +490,37 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBodyApplicationGetExtendedjson,],
+        content_type: typing_extensions.Literal["application/get.extended+json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationVndGetExtendedjson,],
+        content_type: typing_extensions.Literal["application/vnd.get.extended+json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         content_type: str = ...,
         query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -439,7 +536,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         skip_deserialization: typing_extensions.Literal[True],
         content_type: str = ...,
         query_params: RequestQueryParams = frozendict.frozendict(),
@@ -452,7 +549,7 @@ class ApiForpost(BaseApi):
     @typing.overload
     def post(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         content_type: str = ...,
         query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
@@ -467,7 +564,7 @@ class ApiForpost(BaseApi):
 
     def post(
         self,
-        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, ],
+        body: typing.Union[SchemaForRequestBody,bytes, io.FileIO, io.BufferedReader, SchemaForRequestBodyApplicationGetExtendedjson,SchemaForRequestBodyApplicationVndGetExtendedjson,],
         content_type: str = '*/*',
         query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),

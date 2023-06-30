@@ -27,7 +27,34 @@ from apicurioregistryclient import schemas  # noqa: F401
 
 from apicurioregistryclient.model.error import Error
 from apicurioregistryclient.model.artifact_reference import ArtifactReference
+from apicurioregistryclient.model.reference_type import ReferenceType
 
+# Query params
+RefTypeSchema = ReferenceType
+RequestRequiredQueryParams = typing_extensions.TypedDict(
+    'RequestRequiredQueryParams',
+    {
+    }
+)
+RequestOptionalQueryParams = typing_extensions.TypedDict(
+    'RequestOptionalQueryParams',
+    {
+        'refType': typing.Union[RefTypeSchema, ],
+    },
+    total=False
+)
+
+
+class RequestQueryParams(RequestRequiredQueryParams, RequestOptionalQueryParams):
+    pass
+
+
+request_query_ref_type = api_client.QueryParameter(
+    name="refType",
+    style=api_client.ParameterStyle.FORM,
+    schema=RefTypeSchema,
+    explode=True,
+)
 # Path params
 GroupIdSchema = schemas.StrSchema
 ArtifactIdSchema = schemas.StrSchema
@@ -161,6 +188,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_artifact_version_references_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -174,6 +202,7 @@ class BaseApi(api_client.Api):
     def _get_artifact_version_references_oapg(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -183,6 +212,7 @@ class BaseApi(api_client.Api):
     @typing.overload
     def _get_artifact_version_references_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -195,6 +225,7 @@ class BaseApi(api_client.Api):
 
     def _get_artifact_version_references_oapg(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -202,11 +233,12 @@ class BaseApi(api_client.Api):
         skip_deserialization: bool = False,
     ):
         """
-        Get artifact version
+        Get artifact version references
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
+        self._verify_typed_dict_inputs_oapg(RequestQueryParams, query_params)
         self._verify_typed_dict_inputs_oapg(RequestPathParams, path_params)
         used_path = path.value
 
@@ -224,6 +256,19 @@ class BaseApi(api_client.Api):
 
         for k, v in _path_params.items():
             used_path = used_path.replace('{%s}' % k, v)
+
+        prefix_separator_iterator = None
+        for parameter in (
+            request_query_ref_type,
+        ):
+            parameter_data = query_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
+                continue
+            if prefix_separator_iterator is None:
+                prefix_separator_iterator = parameter.get_prefix_separator_iterator()
+            serialized_data = parameter.serialize(parameter_data, prefix_separator_iterator)
+            for serialized_value in serialized_data.values():
+                used_path += serialized_value
 
         _headers = HTTPHeaderDict()
         # TODO add cookie handling
@@ -264,6 +309,7 @@ class GetArtifactVersionReferences(BaseApi):
     @typing.overload
     def get_artifact_version_references(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -277,6 +323,7 @@ class GetArtifactVersionReferences(BaseApi):
     def get_artifact_version_references(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -286,6 +333,7 @@ class GetArtifactVersionReferences(BaseApi):
     @typing.overload
     def get_artifact_version_references(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -298,6 +346,7 @@ class GetArtifactVersionReferences(BaseApi):
 
     def get_artifact_version_references(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -305,6 +354,7 @@ class GetArtifactVersionReferences(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._get_artifact_version_references_oapg(
+            query_params=query_params,
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,
@@ -319,6 +369,7 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -332,6 +383,7 @@ class ApiForget(BaseApi):
     def get(
         self,
         skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -341,6 +393,7 @@ class ApiForget(BaseApi):
     @typing.overload
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -353,6 +406,7 @@ class ApiForget(BaseApi):
 
     def get(
         self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
@@ -360,6 +414,7 @@ class ApiForget(BaseApi):
         skip_deserialization: bool = False,
     ):
         return self._get_artifact_version_references_oapg(
+            query_params=query_params,
             path_params=path_params,
             accept_content_types=accept_content_types,
             stream=stream,

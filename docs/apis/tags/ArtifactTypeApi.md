@@ -1,4 +1,4 @@
-<a name="__pageTop"></a>
+<a id="__pageTop"></a>
 # apicurioregistryclient.apis.tags.artifact_type_api.ArtifactTypeApi
 
 All URIs are relative to *http://localhost*
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**list_artifact_types**](#list_artifact_types) | **get** /admin/artifactTypes | List artifact types
 
 # **list_artifact_types**
-<a name="list_artifact_types"></a>
+<a id="list_artifact_types"></a>
 > [ArtifactTypeInfo] list_artifact_types()
 
 List artifact types

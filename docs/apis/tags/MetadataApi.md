@@ -1,4 +1,4 @@
-<a name="__pageTop"></a>
+<a id="__pageTop"></a>
 # apicurioregistryclient.apis.tags.metadata_api.MetadataApi
 
 All URIs are relative to *http://localhost*
@@ -15,7 +15,7 @@ Method | HTTP request | Description
 [**update_artifact_version_meta_data**](#update_artifact_version_meta_data) | **put** /groups/{groupId}/artifacts/{artifactId}/versions/{version}/meta | Update artifact version metadata
 
 # **delete_artifact_version_meta_data**
-<a name="delete_artifact_version_meta_data"></a>
+<a id="delete_artifact_version_meta_data"></a>
 > delete_artifact_version_meta_data(group_idartifact_idversion)
 
 Delete artifact version metadata
@@ -149,12 +149,12 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_artifact_meta_data**
-<a name="get_artifact_meta_data"></a>
+<a id="get_artifact_meta_data"></a>
 > ArtifactMetaData get_artifact_meta_data(group_idartifact_id)
 
 Get artifact metadata
 
-Gets the metadata for an artifact in the registry.  The returned metadata includes both generated (read-only) and editable metadata (such as name and description).  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`)
+Gets the metadata for an artifact in the registry, based on the latest version. If the latest version of the artifact is marked as `DISABLED`, the next available non-disabled version will be used. The returned metadata includes both generated (read-only) and editable metadata (such as name and description).  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists  or all versions are `DISABLED` (HTTP error `404`) * A server error occurred (HTTP error `500`)
 
 ### Example
 
@@ -280,7 +280,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_artifact_owner**
-<a name="get_artifact_owner"></a>
+<a id="get_artifact_owner"></a>
 > ArtifactOwner get_artifact_owner(group_idartifact_id)
 
 Get artifact owner
@@ -411,7 +411,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_artifact_version_meta_data**
-<a name="get_artifact_version_meta_data"></a>
+<a id="get_artifact_version_meta_data"></a>
 > VersionMetaData get_artifact_version_meta_data(group_idartifact_idversion)
 
 Get artifact version metadata
@@ -553,7 +553,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_artifact_version_meta_data_by_content**
-<a name="get_artifact_version_meta_data_by_content"></a>
+<a id="get_artifact_version_meta_data_by_content"></a>
 > VersionMetaData get_artifact_version_meta_data_by_content(group_idartifact_idbody)
 
 Get artifact version metadata by content
@@ -565,6 +565,7 @@ Gets the metadata for an artifact that matches the raw content.  Searches the re
 ```python
 import apicurioregistryclient
 from apicurioregistryclient.apis.tags import metadata_api
+from apicurioregistryclient.model.artifact_content import ArtifactContent
 from apicurioregistryclient.model.error import Error
 from apicurioregistryclient.model.version_meta_data import VersionMetaData
 from pprint import pprint
@@ -622,7 +623,7 @@ with apicurioregistryclient.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-body | typing.Union[SchemaForRequestBody] | required |
+body | typing.Union[SchemaForRequestBody, SchemaForRequestBodyApplicationGetExtendedjson, SchemaForRequestBodyApplicationVndGetExtendedjson] | required |
 query_params | RequestQueryParams | |
 path_params | RequestPathParams | |
 content_type | str | optional, default is '*/*' | Selects the schema and serialization of the request body
@@ -639,6 +640,18 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  | 
+
+# SchemaForRequestBodyApplicationGetExtendedjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArtifactContent**](../../models/ArtifactContent.md) |  | 
+
+
+# SchemaForRequestBodyApplicationVndGetExtendedjson
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ArtifactContent**](../../models/ArtifactContent.md) |  | 
+
 
 ### query_params
 #### RequestQueryParams
@@ -736,7 +749,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **update_artifact_meta_data**
-<a name="update_artifact_meta_data"></a>
+<a id="update_artifact_meta_data"></a>
 > update_artifact_meta_data(group_idartifact_ideditable_meta_data)
 
 Update artifact metadata
@@ -881,7 +894,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **update_artifact_owner**
-<a name="update_artifact_owner"></a>
+<a id="update_artifact_owner"></a>
 > update_artifact_owner(group_idartifact_idartifact_owner)
 
 Update artifact owner
@@ -1019,7 +1032,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **update_artifact_version_meta_data**
-<a name="update_artifact_version_meta_data"></a>
+<a id="update_artifact_version_meta_data"></a>
 > update_artifact_version_meta_data(group_idartifact_idversioneditable_meta_data)
 
 Update artifact version metadata

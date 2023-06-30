@@ -6,9 +6,7 @@ import enum
 
 
 class PathValues(str, enum.Enum):
-    IDS_CONTENT_IDS_CONTENT_ID_ = "/ids/contentIds/{contentId}/"
     IDS_GLOBAL_IDS_GLOBAL_ID = "/ids/globalIds/{globalId}"
-    IDS_CONTENT_HASHES_CONTENT_HASH_ = "/ids/contentHashes/{contentHash}/"
     ADMIN_ARTIFACT_TYPES = "/admin/artifactTypes"
     ADMIN_RULES = "/admin/rules"
     ADMIN_RULES_RULE = "/admin/rules/{rule}"
@@ -38,7 +36,11 @@ class PathValues(str, enum.Enum):
     GROUPS_GROUP_ID_ARTIFACTS = "/groups/{groupId}/artifacts"
     GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_TEST = "/groups/{groupId}/artifacts/{artifactId}/test"
     GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_VERSIONS = "/groups/{groupId}/artifacts/{artifactId}/versions"
-    GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_META = "/groups/{groupId}/artifacts/{artifactId}/meta"
     GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_OWNER = "/groups/{groupId}/artifacts/{artifactId}/owner"
     GROUPS_GROUP_ID = "/groups/{groupId}"
     GROUPS = "/groups"
+    GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_META = "/groups/{groupId}/artifacts/{artifactId}/meta"
+    GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_VERSIONS_VERSION_COMMENTS = "/groups/{groupId}/artifacts/{artifactId}/versions/{version}/comments"
+    GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_VERSIONS_VERSION_COMMENTS_COMMENT_ID = "/groups/{groupId}/artifacts/{artifactId}/versions/{version}/comments/{commentId}"
+    IDS_CONTENT_IDS_CONTENT_ID_ = "/ids/contentIds/{contentId}/"
+    IDS_CONTENT_HASHES_CONTENT_HASH_ = "/ids/contentHashes/{contentHash}/"

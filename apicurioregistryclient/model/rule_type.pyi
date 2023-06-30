@@ -41,3 +41,7 @@ class RuleType(
     @schemas.classproperty
     def COMPATIBILITY(cls):
         return cls("COMPATIBILITY")
+    
+    @schemas.classproperty
+    def INTEGRITY(cls):
+        return cls("INTEGRITY")

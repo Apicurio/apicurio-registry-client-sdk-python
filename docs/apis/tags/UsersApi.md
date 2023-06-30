@@ -1,4 +1,4 @@
-<a name="__pageTop"></a>
+<a id="__pageTop"></a>
 # apicurioregistryclient.apis.tags.users_api.UsersApi
 
 All URIs are relative to *http://localhost*
@@ -8,7 +8,7 @@ Method | HTTP request | Description
 [**get_current_user_info**](#get_current_user_info) | **get** /users/me | Get current user
 
 # **get_current_user_info**
-<a name="get_current_user_info"></a>
+<a id="get_current_user_info"></a>
 > UserInfo get_current_user_info()
 
 Get current user

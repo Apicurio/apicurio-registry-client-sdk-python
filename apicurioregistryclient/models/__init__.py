@@ -11,6 +11,7 @@
 # import sys
 # sys.setrecursionlimit(n)
 
+from apicurioregistryclient.model.artifact_content import ArtifactContent
 from apicurioregistryclient.model.artifact_description import ArtifactDescription
 from apicurioregistryclient.model.artifact_id import ArtifactId
 from apicurioregistryclient.model.artifact_meta_data import ArtifactMetaData
@@ -21,8 +22,8 @@ from apicurioregistryclient.model.artifact_search_results import ArtifactSearchR
 from apicurioregistryclient.model.artifact_state import ArtifactState
 from apicurioregistryclient.model.artifact_type import ArtifactType
 from apicurioregistryclient.model.artifact_type_info import ArtifactTypeInfo
+from apicurioregistryclient.model.comment import Comment
 from apicurioregistryclient.model.configuration_property import ConfigurationProperty
-from apicurioregistryclient.model.content_create_request import ContentCreateRequest
 from apicurioregistryclient.model.create_group_meta_data import CreateGroupMetaData
 from apicurioregistryclient.model.download_ref import DownloadRef
 from apicurioregistryclient.model.editable_meta_data import EditableMetaData
@@ -33,12 +34,15 @@ from apicurioregistryclient.model.file_content import FileContent
 from apicurioregistryclient.model.group_id import GroupId
 from apicurioregistryclient.model.group_meta_data import GroupMetaData
 from apicurioregistryclient.model.group_search_results import GroupSearchResults
+from apicurioregistryclient.model.handle_references_type import HandleReferencesType
 from apicurioregistryclient.model.if_exists import IfExists
 from apicurioregistryclient.model.limits import Limits
 from apicurioregistryclient.model.log_configuration import LogConfiguration
 from apicurioregistryclient.model.log_level import LogLevel
 from apicurioregistryclient.model.named_log_configuration import NamedLogConfiguration
+from apicurioregistryclient.model.new_comment import NewComment
 from apicurioregistryclient.model.properties import Properties
+from apicurioregistryclient.model.reference_type import ReferenceType
 from apicurioregistryclient.model.role_mapping import RoleMapping
 from apicurioregistryclient.model.role_type import RoleType
 from apicurioregistryclient.model.rule import Rule

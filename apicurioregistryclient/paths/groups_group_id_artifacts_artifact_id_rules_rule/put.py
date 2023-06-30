@@ -45,6 +45,7 @@ class RuleSchema(
         enum_value_to_name = {
             "VALIDITY": "VALIDITY",
             "COMPATIBILITY": "COMPATIBILITY",
+            "INTEGRITY": "INTEGRITY",
         }
     
     @schemas.classproperty
@@ -54,6 +55,10 @@ class RuleSchema(
     @schemas.classproperty
     def COMPATIBILITY(cls):
         return cls("COMPATIBILITY")
+    
+    @schemas.classproperty
+    def INTEGRITY(cls):
+        return cls("INTEGRITY")
 RequestRequiredPathParams = typing_extensions.TypedDict(
     'RequestRequiredPathParams',
     {
