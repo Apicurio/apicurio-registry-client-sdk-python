@@ -9,7 +9,7 @@ jobs:
     name: Generate TS client
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Download OpenAPI document
         run: | 
           mkdir -p tmp
@@ -39,7 +39,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.changes.outputs.generated == 'true'
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v5
         with:
           delete-branch: true
           branch-suffix: short-commit-hash
