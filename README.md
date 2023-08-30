@@ -1,3 +1,10 @@
+# Deprecated
+
+This SDK have been deprecated and is not maintained anymore.
+The same functionality is now offered by https://pypi.org/project/apicurioregistrysdk/ that lives [here](https://github.com/Apicurio/apicurio-registry/tree/main/python-sdk).
+
+---
+
 # apicurioregistryclient
 Apicurio Registry is a datastore for standard event schemas and API designs. Apicurio Registry enables developers to manage and share the structure of their data using a REST interface. For example, client applications can dynamically push or pull the latest updates to or from the registry without needing to redeploy. Apicurio Registry also enables developers to create rules that govern how registry content can evolve over time. For example, this includes rules for content validation and version compatibility.
 
