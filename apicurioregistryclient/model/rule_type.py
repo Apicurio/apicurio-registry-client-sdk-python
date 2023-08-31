@@ -39,6 +39,7 @@ class RuleType(
         enum_value_to_name = {
             "VALIDITY": "VALIDITY",
             "COMPATIBILITY": "COMPATIBILITY",
+            "INTEGRITY": "INTEGRITY",
         }
     
     @schemas.classproperty
@@ -48,3 +49,7 @@ class RuleType(
     @schemas.classproperty
     def COMPATIBILITY(cls):
         return cls("COMPATIBILITY")
+    
+    @schemas.classproperty
+    def INTEGRITY(cls):
+        return cls("INTEGRITY")

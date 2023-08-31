@@ -1,9 +1,7 @@
 import typing_extensions
 
 from apicurioregistryclient.paths import PathValues
-from apicurioregistryclient.apis.paths.ids_content_ids_content_id_ import IdsContentIdsContentId
 from apicurioregistryclient.apis.paths.ids_global_ids_global_id import IdsGlobalIdsGlobalId
-from apicurioregistryclient.apis.paths.ids_content_hashes_content_hash_ import IdsContentHashesContentHash
 from apicurioregistryclient.apis.paths.admin_artifact_types import AdminArtifactTypes
 from apicurioregistryclient.apis.paths.admin_rules import AdminRules
 from apicurioregistryclient.apis.paths.admin_rules_rule import AdminRulesRule
@@ -33,17 +31,19 @@ from apicurioregistryclient.apis.paths.groups_group_id_artifacts_artifact_id imp
 from apicurioregistryclient.apis.paths.groups_group_id_artifacts import GroupsGroupIdArtifacts
 from apicurioregistryclient.apis.paths.groups_group_id_artifacts_artifact_id_test import GroupsGroupIdArtifactsArtifactIdTest
 from apicurioregistryclient.apis.paths.groups_group_id_artifacts_artifact_id_versions import GroupsGroupIdArtifactsArtifactIdVersions
-from apicurioregistryclient.apis.paths.groups_group_id_artifacts_artifact_id_meta import GroupsGroupIdArtifactsArtifactIdMeta
 from apicurioregistryclient.apis.paths.groups_group_id_artifacts_artifact_id_owner import GroupsGroupIdArtifactsArtifactIdOwner
 from apicurioregistryclient.apis.paths.groups_group_id import GroupsGroupId
 from apicurioregistryclient.apis.paths.groups import Groups
+from apicurioregistryclient.apis.paths.groups_group_id_artifacts_artifact_id_meta import GroupsGroupIdArtifactsArtifactIdMeta
+from apicurioregistryclient.apis.paths.groups_group_id_artifacts_artifact_id_versions_version_comments import GroupsGroupIdArtifactsArtifactIdVersionsVersionComments
+from apicurioregistryclient.apis.paths.groups_group_id_artifacts_artifact_id_versions_version_comments_comment_id import GroupsGroupIdArtifactsArtifactIdVersionsVersionCommentsCommentId
+from apicurioregistryclient.apis.paths.ids_content_ids_content_id_ import IdsContentIdsContentId
+from apicurioregistryclient.apis.paths.ids_content_hashes_content_hash_ import IdsContentHashesContentHash
 
 PathToApi = typing_extensions.TypedDict(
     'PathToApi',
     {
-        PathValues.IDS_CONTENT_IDS_CONTENT_ID_: IdsContentIdsContentId,
         PathValues.IDS_GLOBAL_IDS_GLOBAL_ID: IdsGlobalIdsGlobalId,
-        PathValues.IDS_CONTENT_HASHES_CONTENT_HASH_: IdsContentHashesContentHash,
         PathValues.ADMIN_ARTIFACT_TYPES: AdminArtifactTypes,
         PathValues.ADMIN_RULES: AdminRules,
         PathValues.ADMIN_RULES_RULE: AdminRulesRule,
@@ -73,18 +73,20 @@ PathToApi = typing_extensions.TypedDict(
         PathValues.GROUPS_GROUP_ID_ARTIFACTS: GroupsGroupIdArtifacts,
         PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_TEST: GroupsGroupIdArtifactsArtifactIdTest,
         PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_VERSIONS: GroupsGroupIdArtifactsArtifactIdVersions,
-        PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_META: GroupsGroupIdArtifactsArtifactIdMeta,
         PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_OWNER: GroupsGroupIdArtifactsArtifactIdOwner,
         PathValues.GROUPS_GROUP_ID: GroupsGroupId,
         PathValues.GROUPS: Groups,
+        PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_META: GroupsGroupIdArtifactsArtifactIdMeta,
+        PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_VERSIONS_VERSION_COMMENTS: GroupsGroupIdArtifactsArtifactIdVersionsVersionComments,
+        PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_VERSIONS_VERSION_COMMENTS_COMMENT_ID: GroupsGroupIdArtifactsArtifactIdVersionsVersionCommentsCommentId,
+        PathValues.IDS_CONTENT_IDS_CONTENT_ID_: IdsContentIdsContentId,
+        PathValues.IDS_CONTENT_HASHES_CONTENT_HASH_: IdsContentHashesContentHash,
     }
 )
 
 path_to_api = PathToApi(
     {
-        PathValues.IDS_CONTENT_IDS_CONTENT_ID_: IdsContentIdsContentId,
         PathValues.IDS_GLOBAL_IDS_GLOBAL_ID: IdsGlobalIdsGlobalId,
-        PathValues.IDS_CONTENT_HASHES_CONTENT_HASH_: IdsContentHashesContentHash,
         PathValues.ADMIN_ARTIFACT_TYPES: AdminArtifactTypes,
         PathValues.ADMIN_RULES: AdminRules,
         PathValues.ADMIN_RULES_RULE: AdminRulesRule,
@@ -114,9 +116,13 @@ path_to_api = PathToApi(
         PathValues.GROUPS_GROUP_ID_ARTIFACTS: GroupsGroupIdArtifacts,
         PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_TEST: GroupsGroupIdArtifactsArtifactIdTest,
         PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_VERSIONS: GroupsGroupIdArtifactsArtifactIdVersions,
-        PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_META: GroupsGroupIdArtifactsArtifactIdMeta,
         PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_OWNER: GroupsGroupIdArtifactsArtifactIdOwner,
         PathValues.GROUPS_GROUP_ID: GroupsGroupId,
         PathValues.GROUPS: Groups,
+        PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_META: GroupsGroupIdArtifactsArtifactIdMeta,
+        PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_VERSIONS_VERSION_COMMENTS: GroupsGroupIdArtifactsArtifactIdVersionsVersionComments,
+        PathValues.GROUPS_GROUP_ID_ARTIFACTS_ARTIFACT_ID_VERSIONS_VERSION_COMMENTS_COMMENT_ID: GroupsGroupIdArtifactsArtifactIdVersionsVersionCommentsCommentId,
+        PathValues.IDS_CONTENT_IDS_CONTENT_ID_: IdsContentIdsContentId,
+        PathValues.IDS_CONTENT_HASHES_CONTENT_HASH_: IdsContentHashesContentHash,
     }
 )

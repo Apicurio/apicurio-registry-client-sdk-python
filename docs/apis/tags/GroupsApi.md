@@ -1,4 +1,4 @@
-<a name="__pageTop"></a>
+<a id="__pageTop"></a>
 # apicurioregistryclient.apis.tags.groups_api.GroupsApi
 
 All URIs are relative to *http://localhost*
@@ -11,7 +11,7 @@ Method | HTTP request | Description
 [**list_groups**](#list_groups) | **get** /groups | List groups
 
 # **create_group**
-<a name="create_group"></a>
+<a id="create_group"></a>
 > GroupMetaData create_group(create_group_meta_data)
 
 Create a new group
@@ -129,7 +129,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **delete_group_by_id**
-<a name="delete_group_by_id"></a>
+<a id="delete_group_by_id"></a>
 > delete_group_by_id(group_id)
 
 Delete a group by the specified ID.
@@ -241,7 +241,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_group_by_id**
-<a name="get_group_by_id"></a>
+<a id="get_group_by_id"></a>
 > GroupMetaData get_group_by_id(group_id)
 
 Get a group by the specified ID.
@@ -361,7 +361,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **list_groups**
-<a name="list_groups"></a>
+<a id="list_groups"></a>
 > GroupSearchResults list_groups()
 
 List groups

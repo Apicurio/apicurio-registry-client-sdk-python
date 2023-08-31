@@ -1,4 +1,4 @@
-<a name="__pageTop"></a>
+<a id="__pageTop"></a>
 # apicurioregistryclient.apis.tags.artifact_rules_api.ArtifactRulesApi
 
 All URIs are relative to *http://localhost*
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 [**update_artifact_rule_config**](#update_artifact_rule_config) | **put** /groups/{groupId}/artifacts/{artifactId}/rules/{rule} | Update artifact rule configuration
 
 # **create_artifact_rule**
-<a name="create_artifact_rule"></a>
+<a id="create_artifact_rule"></a>
 > create_artifact_rule(group_idartifact_idrule)
 
 Create artifact rule
@@ -167,7 +167,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **delete_artifact_rule**
-<a name="delete_artifact_rule"></a>
+<a id="delete_artifact_rule"></a>
 > delete_artifact_rule(group_idartifact_idrule)
 
 Delete artifact rule
@@ -248,7 +248,7 @@ str,  | str,  | The ID of a single artifact. |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["VALIDITY", "COMPATIBILITY", ] 
+str,  | str,  |  | must be one of ["VALIDITY", "COMPATIBILITY", "INTEGRITY", ] 
 
 ### Return Types, Responses
 
@@ -299,7 +299,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **delete_artifact_rules**
-<a name="delete_artifact_rules"></a>
+<a id="delete_artifact_rules"></a>
 > delete_artifact_rules(group_idartifact_id)
 
 Delete artifact rules
@@ -422,7 +422,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_artifact_rule_config**
-<a name="get_artifact_rule_config"></a>
+<a id="get_artifact_rule_config"></a>
 > Rule get_artifact_rule_config(group_idartifact_idrule)
 
 Get artifact rule configuration
@@ -505,7 +505,7 @@ str,  | str,  | The ID of a single artifact. |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["VALIDITY", "COMPATIBILITY", ] 
+str,  | str,  |  | must be one of ["VALIDITY", "COMPATIBILITY", "INTEGRITY", ] 
 
 ### Return Types, Responses
 
@@ -562,7 +562,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **list_artifact_rules**
-<a name="list_artifact_rules"></a>
+<a id="list_artifact_rules"></a>
 > [RuleType] list_artifact_rules(group_idartifact_id)
 
 List artifact rules
@@ -699,7 +699,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **test_update_artifact**
-<a name="test_update_artifact"></a>
+<a id="test_update_artifact"></a>
 > test_update_artifact(group_idartifact_idbody)
 
 Test update artifact
@@ -850,7 +850,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **update_artifact_rule_config**
-<a name="update_artifact_rule_config"></a>
+<a id="update_artifact_rule_config"></a>
 > Rule update_artifact_rule_config(group_idartifact_idrulerule2)
 
 Update artifact rule configuration
@@ -948,7 +948,7 @@ str,  | str,  | The ID of a single artifact. |
 ## Model Type Info
 Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-str,  | str,  |  | must be one of ["VALIDITY", "COMPATIBILITY", ] 
+str,  | str,  |  | must be one of ["VALIDITY", "COMPATIBILITY", "INTEGRITY", ] 
 
 ### Return Types, Responses
 

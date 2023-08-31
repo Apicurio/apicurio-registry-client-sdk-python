@@ -21,7 +21,7 @@ from .. import ApiTestMixin
 class TestGroupsGroupIdArtifactsArtifactIdVersionsVersionReferences(ApiTestMixin, unittest.TestCase):
     """
     GroupsGroupIdArtifactsArtifactIdVersionsVersionReferences unit test stubs
-        Get artifact version  # noqa: E501
+        Get artifact version references  # noqa: E501
     """
     _configuration = configuration.Configuration()
 

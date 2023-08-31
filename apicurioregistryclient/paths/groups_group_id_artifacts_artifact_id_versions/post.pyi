@@ -25,9 +25,9 @@ import frozendict  # noqa: F401
 
 from apicurioregistryclient import schemas  # noqa: F401
 
+from apicurioregistryclient.model.artifact_content import ArtifactContent
 from apicurioregistryclient.model.error import Error
 from apicurioregistryclient.model.version_meta_data import VersionMetaData
-from apicurioregistryclient.model.content_create_request import ContentCreateRequest
 from apicurioregistryclient.model.rule_violation_error import RuleViolationError
 
 # Header params
@@ -119,8 +119,8 @@ request_path_artifact_id = api_client.PathParameter(
 )
 # body param
 SchemaForRequestBody = schemas.BinarySchema
-SchemaForRequestBodyApplicationCreateExtendedjson = ContentCreateRequest
-SchemaForRequestBodyApplicationVndCreateExtendedjson = ContentCreateRequest
+SchemaForRequestBodyApplicationCreateExtendedjson = ArtifactContent
+SchemaForRequestBodyApplicationVndCreateExtendedjson = ArtifactContent
 
 
 request_body_body = api_client.RequestBody(

@@ -1,4 +1,4 @@
-<a name="__pageTop"></a>
+<a id="__pageTop"></a>
 # apicurioregistryclient.apis.tags.artifacts_api.ArtifactsApi
 
 All URIs are relative to *http://localhost*
@@ -22,7 +22,7 @@ Method | HTTP request | Description
 [**update_artifact_state**](#update_artifact_state) | **put** /groups/{groupId}/artifacts/{artifactId}/state | Update artifact state
 
 # **create_artifact**
-<a name="create_artifact"></a>
+<a id="create_artifact"></a>
 > ArtifactMetaData create_artifact(group_idbody)
 
 Create artifact
@@ -34,9 +34,9 @@ Creates a new artifact by posting the artifact content.  The body of the request
 ```python
 import apicurioregistryclient
 from apicurioregistryclient.apis.tags import artifacts_api
+from apicurioregistryclient.model.artifact_content import ArtifactContent
 from apicurioregistryclient.model.if_exists import IfExists
 from apicurioregistryclient.model.error import Error
-from apicurioregistryclient.model.content_create_request import ContentCreateRequest
 from apicurioregistryclient.model.rule_violation_error import RuleViolationError
 from apicurioregistryclient.model.artifact_meta_data import ArtifactMetaData
 from pprint import pprint
@@ -130,13 +130,13 @@ bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  |
 # SchemaForRequestBodyApplicationCreateExtendedjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ContentCreateRequest**](../../models/ContentCreateRequest.md) |  | 
+[**ArtifactContent**](../../models/ArtifactContent.md) |  | 
 
 
 # SchemaForRequestBodyApplicationVndCreateExtendedjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ContentCreateRequest**](../../models/ContentCreateRequest.md) |  | 
+[**ArtifactContent**](../../models/ArtifactContent.md) |  | 
 
 
 ### query_params
@@ -334,7 +334,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **delete_artifact**
-<a name="delete_artifact"></a>
+<a id="delete_artifact"></a>
 > delete_artifact(group_idartifact_id)
 
 Delete artifact
@@ -457,7 +457,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **delete_artifacts_in_group**
-<a name="delete_artifacts_in_group"></a>
+<a id="delete_artifacts_in_group"></a>
 > delete_artifacts_in_group(group_id)
 
 Delete artifacts in group
@@ -555,7 +555,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_content_by_global_id**
-<a name="get_content_by_global_id"></a>
+<a id="get_content_by_global_id"></a>
 > file_type get_content_by_global_id(global_id)
 
 Get artifact by global ID
@@ -568,6 +568,7 @@ Gets the content for an artifact version in the registry using its globally uniq
 import apicurioregistryclient
 from apicurioregistryclient.apis.tags import artifacts_api
 from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.handle_references_type import HandleReferencesType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -601,7 +602,7 @@ with apicurioregistryclient.ApiClient(configuration) as api_client:
         'globalId': 1,
     }
     query_params = {
-        'dereference': True,
+        'references': HandleReferencesType("PRESERVE"),
     }
     try:
         # Get artifact by global ID
@@ -629,15 +630,14 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-dereference | DereferenceSchema | | optional
+references | ReferencesSchema | | optional
 
 
-# DereferenceSchema
+# ReferencesSchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**HandleReferencesType**](../../models/HandleReferencesType.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bool,  | BoolClass,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -709,7 +709,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_content_by_hash**
-<a name="get_content_by_hash"></a>
+<a id="get_content_by_hash"></a>
 > file_type get_content_by_hash(content_hash)
 
 Get artifact content by SHA-256 hash
@@ -827,7 +827,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_content_by_id**
-<a name="get_content_by_id"></a>
+<a id="get_content_by_id"></a>
 > file_type get_content_by_id(content_id)
 
 Get artifact content by ID
@@ -945,12 +945,12 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_latest_artifact**
-<a name="get_latest_artifact"></a>
+<a id="get_latest_artifact"></a>
 > file_type get_latest_artifact(group_idartifact_id)
 
 Get latest artifact
 
-Returns the latest version of the artifact in its raw form.  The `Content-Type` of the response depends on the artifact type.  In most cases, this is `application/json`, but  for some types it may be different (for example, `PROTOBUF`).  This operation may fail for one of the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+Returns the latest version of the artifact in its raw form.  The `Content-Type` of the response depends on the artifact type.  In most cases, this is `application/json`, but  for some types it may be different (for example, `PROTOBUF`). If the latest version of the artifact is marked as `DISABLED`, the next available non-disabled version will be used.  This operation may fail for one of the following reasons:  * No artifact with this `artifactId` exists or all versions are `DISABLED` (HTTP error `404`) * A server error occurred (HTTP error `500`) 
 
 ### Example
 
@@ -958,6 +958,7 @@ Returns the latest version of the artifact in its raw form.  The `Content-Type` 
 import apicurioregistryclient
 from apicurioregistryclient.apis.tags import artifacts_api
 from apicurioregistryclient.model.error import Error
+from apicurioregistryclient.model.handle_references_type import HandleReferencesType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -993,7 +994,7 @@ with apicurioregistryclient.ApiClient(configuration) as api_client:
         'artifactId': "\"example-artifact\"",
     }
     query_params = {
-        'dereference': True,
+        'references': HandleReferencesType("PRESERVE"),
     }
     try:
         # Get latest artifact
@@ -1021,15 +1022,14 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
-dereference | DereferenceSchema | | optional
+references | ReferencesSchema | | optional
 
 
-# DereferenceSchema
+# ReferencesSchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**HandleReferencesType**](../../models/HandleReferencesType.md) |  | 
 
-## Model Type Info
-Input Type | Accessed Type | Description | Notes
------------- | ------------- | ------------- | -------------
-bool,  | BoolClass,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -1113,7 +1113,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **list_artifacts_in_group**
-<a name="list_artifacts_in_group"></a>
+<a id="list_artifacts_in_group"></a>
 > ArtifactSearchResults list_artifacts_in_group(group_id)
 
 List artifacts in group
@@ -1282,7 +1282,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **references_by_content_hash**
-<a name="references_by_content_hash"></a>
+<a id="references_by_content_hash"></a>
 > [ArtifactReference] references_by_content_hash(content_hash)
 
 List artifact references by hash
@@ -1377,7 +1377,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **references_by_content_id**
-<a name="references_by_content_id"></a>
+<a id="references_by_content_id"></a>
 > [ArtifactReference] references_by_content_id(content_id)
 
 List artifact references by content ID
@@ -1472,7 +1472,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **references_by_global_id**
-<a name="references_by_global_id"></a>
+<a id="references_by_global_id"></a>
 > [ArtifactReference] references_by_global_id(global_id)
 
 List artifact references by global ID
@@ -1485,6 +1485,7 @@ Returns a list containing all the artifact references using the artifact global 
 import apicurioregistryclient
 from apicurioregistryclient.apis.tags import artifacts_api
 from apicurioregistryclient.model.artifact_reference import ArtifactReference
+from apicurioregistryclient.model.reference_type import ReferenceType
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
@@ -1501,10 +1502,30 @@ with apicurioregistryclient.ApiClient(configuration) as api_client:
     path_params = {
         'globalId': 1,
     }
+    query_params = {
+    }
     try:
         # List artifact references by global ID
         api_response = api_instance.references_by_global_id(
             path_params=path_params,
+            query_params=query_params,
+        )
+        pprint(api_response)
+    except apicurioregistryclient.ApiException as e:
+        print("Exception when calling ArtifactsApi->references_by_global_id: %s\n" % e)
+
+    # example passing only optional values
+    path_params = {
+        'globalId': 1,
+    }
+    query_params = {
+        'refType': ReferenceType("\"INBOUND\""),
+    }
+    try:
+        # List artifact references by global ID
+        api_response = api_instance.references_by_global_id(
+            path_params=path_params,
+            query_params=query_params,
         )
         pprint(api_response)
     except apicurioregistryclient.ApiException as e:
@@ -1514,11 +1535,26 @@ with apicurioregistryclient.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+query_params | RequestQueryParams | |
 path_params | RequestPathParams | |
 accept_content_types | typing.Tuple[str] | default is ('application/json', ) | Tells the server the content type(s) that are accepted by the client
 stream | bool | default is False | if True then the response.content will be streamed and loaded from a file like object. When downloading a file, set this to True to force the code to deserialize the content to a FileSchema file
 timeout | typing.Optional[typing.Union[int, typing.Tuple]] | default is None | the timeout used by the rest client
 skip_deserialization | bool | default is False | when True, headers and body will be unset and an instance of api_client.ApiResponseWithoutDeserialization will be returned
+
+### query_params
+#### RequestQueryParams
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+refType | RefTypeSchema | | optional
+
+
+# RefTypeSchema
+Type | Description  | Notes
+------------- | ------------- | -------------
+[**ReferenceType**](../../models/ReferenceType.md) |  | 
+
 
 ### path_params
 #### RequestPathParams
@@ -1567,7 +1603,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **search_artifacts**
-<a name="search_artifacts"></a>
+<a id="search_artifacts"></a>
 > ArtifactSearchResults search_artifacts()
 
 Search for artifacts
@@ -1776,7 +1812,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **search_artifacts_by_content**
-<a name="search_artifacts_by_content"></a>
+<a id="search_artifacts_by_content"></a>
 > ArtifactSearchResults search_artifacts_by_content(body)
 
 Search for artifacts by content
@@ -1953,7 +1989,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **update_artifact**
-<a name="update_artifact"></a>
+<a id="update_artifact"></a>
 > ArtifactMetaData update_artifact(group_idartifact_idbody)
 
 Update artifact
@@ -1965,8 +2001,8 @@ Updates an artifact by uploading new content.  The body of the request can be th
 ```python
 import apicurioregistryclient
 from apicurioregistryclient.apis.tags import artifacts_api
+from apicurioregistryclient.model.artifact_content import ArtifactContent
 from apicurioregistryclient.model.error import Error
-from apicurioregistryclient.model.content_create_request import ContentCreateRequest
 from apicurioregistryclient.model.artifact_meta_data import ArtifactMetaData
 from pprint import pprint
 # Defining the host is optional and defaults to http://localhost
@@ -2048,13 +2084,13 @@ bytes, io.FileIO, io.BufferedReader,  | bytes, FileIO,  |  |
 # SchemaForRequestBodyApplicationCreateExtendedjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ContentCreateRequest**](../../models/ContentCreateRequest.md) |  | 
+[**ArtifactContent**](../../models/ArtifactContent.md) |  | 
 
 
 # SchemaForRequestBodyApplicationVndCreateExtendedjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ContentCreateRequest**](../../models/ContentCreateRequest.md) |  | 
+[**ArtifactContent**](../../models/ArtifactContent.md) |  | 
 
 
 ### header_params
@@ -2208,12 +2244,12 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **update_artifact_state**
-<a name="update_artifact_state"></a>
+<a id="update_artifact_state"></a>
 > update_artifact_state(group_idartifact_idupdate_state)
 
 Update artifact state
 
-Updates the state of the artifact.  For example, you can use this to mark the latest version of an artifact as `DEPRECATED`.  The operation changes the state of the latest  version of the artifact.  If multiple versions exist, only the most recent is changed.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
+Updates the state of the artifact.  For example, you can use this to mark the latest version of an artifact as `DEPRECATED`. The operation changes the state of the latest version of the artifact, even if this version is `DISABLED`. If multiple versions exist, only the most recent is changed.  This operation can fail for the following reasons:  * No artifact with this `artifactId` exists (HTTP error `404`) * A server error occurred (HTTP error `500`) 
 
 ### Example
 

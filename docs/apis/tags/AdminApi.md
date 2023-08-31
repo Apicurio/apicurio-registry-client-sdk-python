@@ -1,4 +1,4 @@
-<a name="__pageTop"></a>
+<a id="__pageTop"></a>
 # apicurioregistryclient.apis.tags.admin_api.AdminApi
 
 All URIs are relative to *http://localhost*
@@ -29,7 +29,7 @@ Method | HTTP request | Description
 [**update_role_mapping**](#update_role_mapping) | **put** /admin/roleMappings/{principalId} | Update a role mapping
 
 # **create_global_rule**
-<a name="create_global_rule"></a>
+<a id="create_global_rule"></a>
 > create_global_rule(rule)
 
 Create global rule
@@ -150,7 +150,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **create_role_mapping**
-<a name="create_role_mapping"></a>
+<a id="create_role_mapping"></a>
 > create_role_mapping(role_mapping)
 
 Create a new role mapping
@@ -244,7 +244,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **delete_all_global_rules**
-<a name="delete_all_global_rules"></a>
+<a id="delete_all_global_rules"></a>
 > delete_all_global_rules()
 
 Delete all global rules
@@ -314,7 +314,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **delete_global_rule**
-<a name="delete_global_rule"></a>
+<a id="delete_global_rule"></a>
 > delete_global_rule(rule)
 
 Delete global rule
@@ -424,7 +424,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **delete_role_mapping**
-<a name="delete_role_mapping"></a>
+<a id="delete_role_mapping"></a>
 > delete_role_mapping(principal_id)
 
 Delete a role mapping
@@ -534,7 +534,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **export_data**
-<a name="export_data"></a>
+<a id="export_data"></a>
 > file_type export_data()
 
 Export registry data
@@ -646,7 +646,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_config_property**
-<a name="get_config_property"></a>
+<a id="get_config_property"></a>
 > ConfigurationProperty get_config_property(property_name)
 
 Get configuration property value
@@ -764,7 +764,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_global_rule_config**
-<a name="get_global_rule_config"></a>
+<a id="get_global_rule_config"></a>
 > Rule get_global_rule_config(rule)
 
 Get global rule configuration
@@ -882,7 +882,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_log_configuration**
-<a name="get_log_configuration"></a>
+<a id="get_log_configuration"></a>
 > NamedLogConfiguration get_log_configuration(logger)
 
 Get a single logger configuration
@@ -986,7 +986,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_role_mapping**
-<a name="get_role_mapping"></a>
+<a id="get_role_mapping"></a>
 > RoleMapping get_role_mapping(principal_id)
 
 Return a single role mapping
@@ -1104,7 +1104,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **import_data**
-<a name="import_data"></a>
+<a id="import_data"></a>
 > import_data(body)
 
 Import registry data
@@ -1235,7 +1235,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **list_artifact_types**
-<a name="list_artifact_types"></a>
+<a id="list_artifact_types"></a>
 > [ArtifactTypeInfo] list_artifact_types()
 
 List artifact types
@@ -1319,7 +1319,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **list_config_properties**
-<a name="list_config_properties"></a>
+<a id="list_config_properties"></a>
 > [ConfigurationProperty] list_config_properties()
 
 List all configuration properties
@@ -1403,7 +1403,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **list_global_rules**
-<a name="list_global_rules"></a>
+<a id="list_global_rules"></a>
 > [RuleType] list_global_rules()
 
 List global rules
@@ -1487,7 +1487,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **list_log_configurations**
-<a name="list_log_configurations"></a>
+<a id="list_log_configurations"></a>
 > [NamedLogConfiguration] list_log_configurations()
 
 List logging configurations
@@ -1571,7 +1571,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **list_role_mappings**
-<a name="list_role_mappings"></a>
+<a id="list_role_mappings"></a>
 > [RoleMapping] list_role_mappings()
 
 List all role mappings
@@ -1655,7 +1655,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **remove_log_configuration**
-<a name="remove_log_configuration"></a>
+<a id="remove_log_configuration"></a>
 > NamedLogConfiguration remove_log_configuration(logger)
 
 Removes logger configuration
@@ -1759,7 +1759,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **reset_config_property**
-<a name="reset_config_property"></a>
+<a id="reset_config_property"></a>
 > reset_config_property(property_name)
 
 Reset a configuration property
@@ -1869,7 +1869,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **set_log_configuration**
-<a name="set_log_configuration"></a>
+<a id="set_log_configuration"></a>
 > NamedLogConfiguration set_log_configuration(loggerlog_configuration)
 
 Set a logger's configuration
@@ -1988,7 +1988,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **update_config_property**
-<a name="update_config_property"></a>
+<a id="update_config_property"></a>
 > update_config_property(property_nameupdate_configuration_property)
 
 Update a configuration property
@@ -2113,7 +2113,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **update_global_rule_config**
-<a name="update_global_rule_config"></a>
+<a id="update_global_rule_config"></a>
 > Rule update_global_rule_config(rulerule2)
 
 Update global rule configuration
@@ -2246,7 +2246,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **update_role_mapping**
-<a name="update_role_mapping"></a>
+<a id="update_role_mapping"></a>
 > update_role_mapping(principal_idupdate_role)
 
 Update a role mapping

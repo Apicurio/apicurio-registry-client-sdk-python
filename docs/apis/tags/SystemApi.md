@@ -1,4 +1,4 @@
-<a name="__pageTop"></a>
+<a id="__pageTop"></a>
 # apicurioregistryclient.apis.tags.system_api.SystemApi
 
 All URIs are relative to *http://localhost*
@@ -9,7 +9,7 @@ Method | HTTP request | Description
 [**get_system_info**](#get_system_info) | **get** /system/info | Get system information
 
 # **get_resource_limits**
-<a name="get_resource_limits"></a>
+<a id="get_resource_limits"></a>
 > Limits get_resource_limits()
 
 Get resource limits information
@@ -87,7 +87,7 @@ No authorization required
 [[Back to top]](#__pageTop) [[Back to API list]](../../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../../README.md#documentation-for-models) [[Back to README]](../../../README.md)
 
 # **get_system_info**
-<a name="get_system_info"></a>
+<a id="get_system_info"></a>
 > SystemInfo get_system_info()
 
 Get system information
